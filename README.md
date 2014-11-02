@@ -17,22 +17,23 @@ web-gl or web audio for example, so all the tedious tasks are automated and I ca
 
 In setting up this template I've considered several options and decided on a couple of things:
 - Using Grunt for compiling the RequireJS setup to a minified file is really neat, but running a watcher to do this
-real-time during development is a bit too heavy. So when starting the development-task, The normal require.js setup is
+real-time during development is a bit too heavy. So when starting the development-task the normal require.js setup is
 used, pointing the data-main attribute to main.js. When running the distribution-task, data-main is set to the minified
 file generated with the r.js optimizer
 - It might still be handy to get some useful console output when running the distribution mode, so a source mapping file
 is generated with the main.min.js file. If you don't (want to) supply your original source files when deploying,
 you should set `generateSourceMaps: false` in Gruntfile.js
-- The Bower packages are downloaded to scripts/vendor as opposed to the standard bower_components folder, so everything
-RequireJS includes resides inside the scripts folder
+- The Bower packages are downloaded to scripts/vendor as opposed to the standard bower_components folder, so that
+everything RequireJS includes resides inside the scripts folder
 - [injector.js](https://github.com/biggerboat/injector.js) is used for dependency injection, which I prefer as a method
 for making Backbone models available in Backbone views. A custom plugin automatically injects the injector itself into
 a view, if supplied when initializing the view: `new Backbone.View({ injector: this.injector });`
-- A Backbone autobind plugin is useful in any Backbone object to ensure `this` always refers the the object in it's methods
+- A Backbone autobind plugin is useful in any Backbone object to ensure `this` always refers the the object itself in
+it's methods
 - Likewise, Backbone-super simplifies calling an extended Backbone object's parent method
 
 ## Installation
-To get started, the vendor tools need to be installed. If you have not already, make sure you have
+To get started, the vendor tools need to be installed. If you haven't already, make sure you have
 [Node.js](http://nodejs.org/) and [Bower](http://bower.io/) up and running.
 Then run these commands in the template's directory:
 ```
@@ -61,4 +62,4 @@ Runs the development task, which:
 grunt
 ```
 Runs the the development task and then starts a watcher to listen for changes in the
-.scss and .hbs files, to re-compile the CSS and Handlebars templates respectively
+.scss and .hbs files, to recompile the CSS and Handlebars templates respectively
