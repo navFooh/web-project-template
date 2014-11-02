@@ -16,7 +16,7 @@ Therefore this template is more suited for single page websites. Personally I li
 web-gl or web audio for example, so all the tedious tasks are automated and I can focus on the things that matter.
 
 In setting up this template I've considered several options and decided on a couple of things:
-- Using Grunt for compiling the RequireJS setup to a minified file is really neat, but running a watcher to do this
+- Using Grunt for compiling the RequireJS setup to a minified file is nice, but running a watcher to do this
 real-time during development is a bit too heavy. So when starting the development-task the normal require.js setup is
 used, pointing the data-main attribute to main.js. When running the distribution-task, data-main points to the minified
 file generated with the optimizer
