@@ -42,7 +42,7 @@ bower install
 ```
 
 ## Grunt tasks
-As previously mentioned, there are two grunt-modes; development and distribution.
+There are two grunt-modes; development and distribution.
 ```
 grunt:dist
 ```
