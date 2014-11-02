@@ -20,7 +20,7 @@ In setting up this template I've considered several options and decided on a cou
 real-time during development is a bit too heavy. So when starting the development-task the normal require.js setup is
 used, pointing the data-main attribute to main.js. When running the distribution-task, data-main points to the minified
 file generated with the optimizer
-- It might still be handy to get some useful console output when running the distribution mode, so a source mapping file
+- It might still be handy to get some useful console output when running in distribution mode, so a source mapping file
 is generated with the main.min.js file. If you don't (want to) supply your original source files when deploying,
 you should set `generateSourceMaps: false` in Gruntfile.js
 - The Bower packages are downloaded to scripts/vendor as opposed to the standard bower_components folder, so that
