@@ -18,8 +18,8 @@ web-gl or web audio for example, so all the tedious tasks are automated and I ca
 In setting up this template I've considered several options and decided on a couple of things:
 - Using Grunt for compiling the RequireJS setup to a minified file is really neat, but running a watcher to do this
 real-time during development is a bit too heavy. So when starting the development-task the normal require.js setup is
-used, pointing the data-main attribute to main.js. When running the distribution-task, data-main is set to the minified
-file generated with the r.js optimizer
+used, pointing the data-main attribute to main.js. When running the distribution-task, data-main points to the minified
+file generated with the optimizer
 - It might still be handy to get some useful console output when running the distribution mode, so a source mapping file
 is generated with the main.min.js file. If you don't (want to) supply your original source files when deploying,
 you should set `generateSourceMaps: false` in Gruntfile.js
