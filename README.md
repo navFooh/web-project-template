@@ -2,8 +2,8 @@
 This is a project starter for HTML / CSS / JS development. The main components are [RequireJS](http://requirejs.org/)
 for dependency management, [Backbone.js](http://backbonejs.org/) for a basic model / view structure,
 [Handlebars](http://handlebarsjs.com/) for rendering html-templates and [Compass](http://compass-style.org/) for
-compiling the style sheets. It also includes [TweenMax](http://greensock.com/tweenmax) for animation, which is a neat
-tool but not essential for the setup.
+compiling the style sheets. It also includes [TweenMax](http://greensock.com/tweenmax), which is not
+essential for the setup but a very neat tool for animation.
 
 To wrap it all up, [Grunt](http://gruntjs.com/) handles all the compilation tasks and runs a watcher for development.
 
