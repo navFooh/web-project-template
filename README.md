@@ -44,7 +44,7 @@ bower install
 ## Grunt tasks
 There are two grunt-modes; development and distribution.
 ```
-grunt:dist
+grunt dist
 ```
 Runs the distribution task, which:
 - points require to scripts/build/main.min.js
@@ -52,7 +52,7 @@ Runs the distribution task, which:
 - compiles the Handlebars templates to javascript
 - packages the vendor scripts, custom scripts and compiled templates in the main.min.js
 ```
-grunt:dev
+grunt dev
 ```
 Runs the development task, which:
 - points require to scripts/main.js
