@@ -1,5 +1,5 @@
 {
-  "name": "Web Project Template",
+  "name": "web-project-template",
   "private": true,
   "dependencies": {
     "requirejs": "~2.1.15",

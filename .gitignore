@@ -42,6 +42,7 @@ sftp-config.json
 compass_app_log.txt
 
 # Vendors
+npm-debug.log
 node_modules
 bower_components
 **/scripts/vendor

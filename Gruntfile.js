@@ -17,9 +17,6 @@ module.exports = function(grunt) {
 				src: ['index.html'],
 				overwrite: true,
 				replacements: [{
-					from: /<title>(.*?)<\/title>/g,
-					to: '<title><%= pkg.name %></title>'
-				}, {
 					from: /data-main="(.*?)"/g,
 					to: 'data-main="scripts/main"'
 				}]
