@@ -35,22 +35,27 @@ a view, if supplied when initializing the view: `new Backbone.View({ injector: t
 To get started, the vendor tools need to be installed. If you have not already, make sure you have
 [Node.js](http://nodejs.org/) and [Bower](http://bower.io/) up and running.
 Then run these commands in the template's directory:
-	npm install
-	bower install
+```
+npm install
+bower install
+```
 
 ## Grunt tasks
 As previously mentioned, there are two grunt-modes; development and distribution.
-	grunt:dist
+
+`grunt:dist`
 Runs the distribution task, which:
 - points require to scripts/build/main.min.js
 - compiles the CSS to a compressed file
 - compiles the Handlebars templates to javascript
 - packages the vendor scripts, custom scripts and compiled templates in the main.min.js
-	grunt:dev
+
+`grunt:dev`
 Runs the development task, which:
 - points require to scripts/main.js
 - compiles the CSS to an expanded file
 - compiles the Handlebars templates to javascript
-	grunt
+
+`grunt`
 Runs the the development task and then starts a watcher to listen for changes in the
 .scss and .hbs files, to re-compile the CSS and Handlebars templates respectively
