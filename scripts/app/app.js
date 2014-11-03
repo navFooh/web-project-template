@@ -1,5 +1,6 @@
 define([
 	// models
+	'app/model/DisplayModel',
 	'app/model/HeaderModel',
 	'app/model/ContentModel',
 	'app/model/FooterModel',
@@ -9,6 +10,7 @@ define([
 	'app/view/FooterView'
 ], function (
 	// models
+	DisplayModel,
 	HeaderModel,
 	ContentModel,
 	FooterModel,
@@ -20,14 +22,16 @@ define([
 
 	return new function() {
 
+		var injectorInstance = new injector.Injector();
+
 		this.initialize = function() {
 
-			var injectorInstance = new injector.Injector(),
-				// models
-				headerModel = new HeaderModel(),
+			injectorInstance.map('displayModel').toSingleton(DisplayModel);
+
+			var headerModel = new HeaderModel(),
 				contentModel = new ContentModel(),
 				footerModel = new FooterModel(),
-				// views
+
 				headerView = new HeaderView({ injector: injectorInstance, model: headerModel }),
 				contentView = new ContentView({ injector: injectorInstance, model: contentModel }),
 				footerView = new FooterView({ injector: injectorInstance, model: footerModel });
@@ -36,6 +40,6 @@ define([
 			contentView.render('body');
 			footerView.render('body');
 		}
-	};
 
+	};
 });
