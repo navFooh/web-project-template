@@ -1,4 +1,5 @@
 require.config({
+
 	paths: {
 		// vendor
 		'jquery':               'vendor/jquery/dist/jquery',
@@ -9,26 +10,27 @@ require.config({
 		'handlebars.runtime':   'vendor/handlebars/handlebars.runtime',
 		'tweenmax':             'vendor/greensock/src/uncompressed/TweenMax',
 		// plugins
-		'backboneInjector':     'plugins/backboneInjector',
 		'backboneAutoBind':     'plugins/backboneAutoBind',
+		'backboneInjector':     'plugins/backboneInjector',
 		// directories
 		'templates':            'build/templates'
-	},
-
-	deps: [
-		// vendor
-		'jquery',
-		'injector',
-		'underscore',
-		'backbone',
-		'backbone-super',
-		'tweenmax',
-		// plugins
-		'backboneInjector',
-		'backboneAutoBind'
-	]
+	}
 });
 
-require(['app/app'], function(App) {
-	App.initialize();
+require([
+	// vendor
+	'jquery',
+	'injector',
+	'underscore',
+	'backbone',
+	'backbone-super',
+	'tweenmax',
+	// plugins
+	'backboneInjector',
+	'backboneAutoBind'
+], function() {
+
+	require(['app/app'], function(app) {
+		app.initialize();
+	});
 });
