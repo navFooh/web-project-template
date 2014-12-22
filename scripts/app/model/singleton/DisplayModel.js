@@ -1,6 +1,6 @@
 define(function () {
 
-	return Backbone.Model.extend({
+	var DisplayModel = Backbone.Model.extend({
 
 		defaults: {
 			windowWidth: 0,
@@ -30,6 +30,7 @@ define(function () {
 				scrollTop: $(window).scrollTop()
 			});
 		}
-
 	});
+
+	return new DisplayModel();
 });

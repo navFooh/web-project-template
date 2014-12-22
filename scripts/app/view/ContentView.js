@@ -1,8 +1,13 @@
-define(['templates/content'], function(template) {
+define([
+	'model/singleton/DisplayModel',
+	'model/ContentModel',
+	'templates/content'
+], function(DisplayModel, ContentModel, template) {
 
 	return Backbone.View.extend({
 
-		displayModel: 'inject',
+		model: new ContentModel(),
+
 		$displayValues: null,
 
 		initialize: function () {
@@ -17,19 +22,18 @@ define(['templates/content'], function(template) {
 
 			this.onChangeDisplayValues();
 
-			this.listenTo(this.displayModel, 'change', this.onChangeDisplayValues);
+			this.listenTo(DisplayModel, 'change', this.onChangeDisplayValues);
 		},
 
 		onChangeDisplayValues: function() {
-			var windowWidth = this.displayModel.get('windowWidth'),
-				windowHeight = this.displayModel.get('windowHeight'),
-				scrollTop = this.displayModel.get('scrollTop'),
+			var windowWidth = DisplayModel.get('windowWidth'),
+				windowHeight = DisplayModel.get('windowHeight'),
+				scrollTop = DisplayModel.get('scrollTop'),
 				displayValues = '';
 			displayValues += 'Window width: ' + windowWidth + '<br />';
 			displayValues += 'Window height: ' + windowHeight + '<br />';
 			displayValues += 'Window scroll: ' + scrollTop;
 			this.$displayValues.html(displayValues);
 		}
-
 	});
 });

@@ -1,6 +1,11 @@
-define(['templates/header'], function(template) {
+define([
+	'model/HeaderModel',
+	'templates/header'
+], function(HeaderModel, template) {
 
 	return Backbone.View.extend({
+
+		model: new HeaderModel(),
 
 		initialize: function () {
 			this.autoBind();
@@ -10,6 +15,5 @@ define(['templates/header'], function(template) {
 			this.setElement(template(this.model.toJSON()));
 			this.$el.appendTo($parent);
 		}
-
 	});
 });

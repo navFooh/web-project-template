@@ -1,34 +1,40 @@
 require.config({
 
 	paths: {
+		// require.js
+		'text':                 'vendor/requirejs-plugins/lib/text',
+		'json':                 'vendor/requirejs-plugins/src/json',
 		// vendor
 		'jquery':               'vendor/jquery/dist/jquery',
 		'underscore':           'vendor/underscore/underscore',
 		'backbone':             'vendor/backbone/backbone',
 		'backbone-super':       'vendor/backbone-super/backbone-super/backbone-super',
 		'handlebars.runtime':   'vendor/handlebars/handlebars.runtime',
-		'injector':             'vendor/injector.js/injector-js',
-		'tweenmax':             'vendor/greensock/src/uncompressed/TweenMax',
+		'TweenLite':            'vendor/greensock/src/uncompressed/TweenLite',
+		'TweenMax':             'vendor/greensock/src/uncompressed/TweenMax',
+		'TimelineLite':         'vendor/greensock/src/uncompressed/TimelineLite',
+		'TimelineMax':          'vendor/greensock/src/uncompressed/TimelineMax',
+		'hammer':               'vendor/hammer.js/hammer',
 		// plugins
 		'backbone-autoBind':    'plugins/backbone-autoBind',
-		'backbone-injector':    'plugins/backbone-injector',
 		// directories
+		'model':                'app/model',
+		'view':                 'app/view',
 		'templates':            'build/templates'
+	},
+
+	shim: {
+		// this makes sure TimelineMax does not include
+		// TweenLite when already loading TweenMax
+		'TimelineMax': { deps: ['TweenMax'] }
 	}
 });
 
 require([
-	// vendor
-	'jquery',
-	'underscore',
-	'backbone',
+	// this will make sure that backbone.js, jQuery
+	// and underscore.js are globally available
 	'backbone-super',
-	'handlebars.runtime',
-	'injector',
-	'tweenmax',
-	// plugins
-	'backbone-autoBind',
-	'backbone-injector'
+	'backbone-autoBind'
 ], function() {
 
 	require(['app/app'], function(app) {

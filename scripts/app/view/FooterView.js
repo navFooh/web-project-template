@@ -1,6 +1,11 @@
-define(['templates/footer'], function(template) {
+define([
+	'model/FooterModel',
+	'templates/footer'
+], function(FooterModel, template) {
 
 	return Backbone.View.extend({
+
+		model: new FooterModel(),
 
 		initialize: function () {
 			this.autoBind();
@@ -10,6 +15,5 @@ define(['templates/footer'], function(template) {
 			this.setElement(template(this.model.toJSON()));
 			this.$el.appendTo($parent);
 		}
-
 	});
 });
