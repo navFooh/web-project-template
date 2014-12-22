@@ -5,7 +5,8 @@ The main components are [RequireJS](http://requirejs.org/) for dependency manage
 [Backbone.js](http://backbonejs.org/) for a basic model / view structure, [Handlebars](http://handlebarsjs.com/)
 for rendering html-templates and [Compass](http://compass-style.org/) for compiling the style sheets.
 
-It also includes the [GreenSock](http://greensock.com/) libraries for animation.
+It also includes the [GreenSock](http://greensock.com/) libraries for animation and
+[Hammer.js](http://hammerjs.github.io/) for supporting touch.
 
 To wrap it all up, [Grunt](http://gruntjs.com/) handles all the compilation tasks.
 
