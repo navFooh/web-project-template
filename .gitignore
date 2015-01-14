@@ -37,6 +37,9 @@ sftp-config.json
 # Web Development Files
 # =========================
 
+# FTP
+.ftpauth
+
 # Sass
 .sass-cache
 compass_app_log.txt
