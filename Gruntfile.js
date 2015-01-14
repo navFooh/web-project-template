@@ -63,7 +63,7 @@ module.exports = function(grunt) {
 					stubModules : ['json', 'text'],
 					preserveLicenseComments: false,
 					findNestedDependencies: true,
-					generateSourceMaps: true,
+					generateSourceMaps: false,
 					optimize: "uglify2"
 				}
 			}
@@ -78,6 +78,28 @@ module.exports = function(grunt) {
 				files: ['templates/**/*.hbs'],
 				tasks: ['clean', 'handlebars']
 			}
+		},
+
+		ftp_push: {
+			live: {
+				options: {
+					authKey: 'key',
+					host: 'ftp.strato.com',
+					dest: '<%= pkg.name %>',
+					port: 21
+				},
+				files: [{
+					expand: true,
+					cwd: '.',
+					src: [
+						'assets/**',
+						'scripts/build/main.min.js',
+						'scripts/vendor/requirejs/require.js',
+						'styles/style.css',
+						'index.html'
+					]
+				}]
+			}
 		}
 	});
 
@@ -87,8 +109,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-handlebars');
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-ftp-push');
 
 	grunt.registerTask('dist', ['compile-handlebars:dist', 'compass:dist', 'clean', 'handlebars', 'requirejs']);
 	grunt.registerTask('dev', ['compile-handlebars:dev', 'compass:dev', 'clean', 'handlebars']);
+	grunt.registerTask('deploy', ['dist', 'ftp_push']);
 	grunt.registerTask('default', ['dev', 'watch']);
 };
