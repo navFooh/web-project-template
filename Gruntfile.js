@@ -5,15 +5,15 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 
 		'compile-handlebars': {
-			dist: {
-				globals: ['metadata.json'],
-				templateData: { dev: false, script: 'scripts/build/main.min' },
-				template: 'index.hbs',
-				output: 'index.html'
-			},
 			dev: {
 				globals: ['metadata.json'],
 				templateData: { dev: true, script: 'scripts/main' },
+				template: 'index.hbs',
+				output: 'index.html'
+			},
+			dist: {
+				globals: ['metadata.json'],
+				templateData: { dev: false, script: 'scripts/build/main.min' },
 				template: 'index.hbs',
 				output: 'index.html'
 			}
@@ -24,16 +24,16 @@ module.exports = function(grunt) {
 				config: 'config.rb',
 				force: true
 			},
-			dist: {
-				options: {
-					outputStyle: 'compressed',
-					environment: 'production'
-				}
-			},
 			dev: {
 				options: {
 					outputStyle: 'expanded',
 					environment: 'development'
+				}
+			},
+			dist: {
+				options: {
+					outputStyle: 'compressed',
+					environment: 'production'
 				}
 			}
 		},
@@ -111,8 +111,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-ftp-push');
 
-	grunt.registerTask('dist', ['compile-handlebars:dist', 'compass:dist', 'clean', 'handlebars', 'requirejs']);
 	grunt.registerTask('dev', ['compile-handlebars:dev', 'compass:dev', 'clean', 'handlebars']);
+	grunt.registerTask('dist', ['compile-handlebars:dist', 'compass:dist', 'clean', 'handlebars', 'requirejs']);
 	grunt.registerTask('deploy', ['dist', 'ftp_push']);
 	grunt.registerTask('default', ['dev', 'watch']);
 };
