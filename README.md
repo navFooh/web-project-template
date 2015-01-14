@@ -1,6 +1,5 @@
 # Web Project Template
 This is a project starter for HTML / CSS / JS development.
-Best used for single-page websites, as no server side scripts are included.
 
 The main components are [RequireJS](http://requirejs.org/) for dependency management,
 [Backbone.js](http://backbonejs.org/) for a basic model / view structure, [Handlebars](http://handlebarsjs.com/)
@@ -9,7 +8,7 @@ for rendering html-templates and [Compass](http://compass-style.org/) for compil
 It also includes the [GreenSock](http://greensock.com/) libraries for animation and
 [Hammer.js](http://hammerjs.github.io/) for supporting touch.
 
-To wrap it all up, [Grunt](http://gruntjs.com/) handles all the compilation tasks.
+To wrap it up, [Grunt](http://gruntjs.com/) handles all the compilation tasks.
 
 ## Installation
 To get started, the vendor tools need to be installed. If you haven't already, make sure you have
