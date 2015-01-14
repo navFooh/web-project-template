@@ -28,15 +28,12 @@ bower install
 ```
 
 ## Grunt tasks
-There are two grunt-modes; development and distribution.
 ```
-grunt dist
+grunt
 ```
-Runs the distribution task, which:
-- builds a distribution version of index.html
-- compiles the CSS to a compressed file
-- compiles the Handlebars templates to javascript
-- packages the vendor scripts, custom scripts and compiled templates in the main.min.js
+Runs
+- `grunt dev`
+- watches for changes in .scss and .hbs files to recompile
 ```
 grunt dev
 ```
@@ -45,7 +42,16 @@ Runs the development task, which:
 - compiles the CSS to an expanded file
 - compiles the Handlebars templates to javascript
 ```
-grunt
+grunt dist
 ```
-Runs the the development task and then starts a watcher to listen for changes in the
-.scss and .hbs files, to recompile the CSS and Handlebars templates respectively
+Runs the distribution task, which:
+- builds a distribution version of index.html
+- compiles the CSS to a compressed file
+- compiles the Handlebars templates to javascript
+- packages all the javascript in main.min.js
+```
+grunt deploy
+```
+Runs
+- `grunt dist`
+- deploys to a server with FTP
