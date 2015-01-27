@@ -1,6 +1,3 @@
-# Require compass plugins
-# require 'breakpoint'
-
 # Set directories:
 http_path = "./"
 css_dir = "./styles"
