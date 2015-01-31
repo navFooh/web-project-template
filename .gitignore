@@ -53,3 +53,4 @@ bower_components
 # Build results
 **/styles/style.css
 **/scripts/build
+/public
