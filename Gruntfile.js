@@ -7,15 +7,15 @@ module.exports = function(grunt) {
 		'compile-handlebars': {
 			dev: {
 				globals: ['metadata.json'],
-				templateData: { dev: true, script: 'scripts/main' },
-				template: 'index.hbs',
-				output: 'index.html'
+				templateData: { dev: true, script: '../scripts/main' },
+				template: 'templates/index.hbs',
+				output: 'public/index.html'
 			},
 			dist: {
 				globals: ['metadata.json'],
-				templateData: { dev: false, script: 'scripts/build/main.min' },
-				template: 'index.hbs',
-				output: 'index.html'
+				templateData: { dev: false, script: 'js/main.min' },
+				template: 'templates/index.hbs',
+				output: 'public/index.html'
 			}
 		},
 
