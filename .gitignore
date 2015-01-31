@@ -46,11 +46,10 @@ compass_app_log.txt
 
 # Vendors
 npm-debug.log
-node_modules
-bower_components
-**/scripts/vendor
+/node_modules
+/bower_components
+/scripts/vendor
 
 # Build results
-**/styles/style.css
-**/scripts/build
 /public
+/templates/build
