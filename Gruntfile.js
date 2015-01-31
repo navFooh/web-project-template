@@ -38,7 +38,7 @@ module.exports = function(grunt) {
 			}
 		},
 
-		clean: ['scripts/build'],
+		clean: ['public', 'templates/build'],
 
 		handlebars: {
 			compile: {
@@ -47,9 +47,9 @@ module.exports = function(grunt) {
 					namespace: false
 				},
 				expand: true,
-				cwd: 'templates',
+				cwd: 'templates/parts',
 				src: ['**/*.hbs'],
-				dest: 'scripts/build/templates',
+				dest: 'templates/build',
 				ext: '.js'
 			}
 		},

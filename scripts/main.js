@@ -20,7 +20,7 @@ require.config({
 		// directories
 		'model':                'app/model',
 		'view':                 'app/view',
-		'templates':            'build/templates'
+		'templates':            '../templates/build'
 	},
 
 	shim: {
