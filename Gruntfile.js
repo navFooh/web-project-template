@@ -59,7 +59,7 @@ module.exports = function(grunt) {
 				options: {
 					mainConfigFile: "scripts/main.js",
 					name: 'main',
-					out: "scripts/build/main.min.js",
+					out: "public/js/main.min.js",
 					stubModules : ['json', 'text'],
 					preserveLicenseComments: false,
 					findNestedDependencies: true,
