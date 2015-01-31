@@ -74,9 +74,13 @@ module.exports = function(grunt) {
 				files: ['styles/**/*.scss'],
 				tasks: ['compass:dev']
 			},
+			index: {
+				files: ['templates/index.hbs'],
+				tasks: ['compile-handlebars:dev']
+			},
 			templates: {
-				files: ['templates/**/*.hbs'],
-				tasks: ['clean', 'handlebars']
+				files: ['templates/parts/**/*.hbs'],
+				tasks: ['handlebars']
 			}
 		},
 
