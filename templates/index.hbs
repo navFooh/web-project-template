@@ -21,7 +21,11 @@
 		<meta property="og:image" content="{{ url }}/assets/images/og-image.jpg"/>
 		<meta property="fb:admins" content="{{ fbAdmin }}"/>
 
-		<script data-main="{{ script }}" src="scripts/vendor/requirejs/require.js"></script>
+		{{#if dev}}
+		<script src="../scripts/vendor/requirejs/require.js" data-main="../scripts/main"></script>
+		{{else}}
+		<script src="js/main.min.js"></script>
+		{{/if}}
 
 		{{! Google Analytics }}
 		{{#unless dev}}

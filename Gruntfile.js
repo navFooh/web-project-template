@@ -9,13 +9,13 @@ module.exports = function(grunt) {
 		'compile-handlebars': {
 			dev: {
 				globals: ['metadata.json'],
-				templateData: { dev: true, script: '../scripts/main' },
+				templateData: { dev: true },
 				template: 'templates/index.hbs',
 				output: 'public/index.html'
 			},
 			dist: {
 				globals: ['metadata.json'],
-				templateData: { dev: false, script: 'js/main.min' },
+				templateData: { dev: false },
 				template: 'templates/index.hbs',
 				output: 'public/index.html'
 			}
@@ -60,6 +60,7 @@ module.exports = function(grunt) {
 					mainConfigFile: "scripts/main.js",
 					name: 'main',
 					out: "public/js/main.min.js",
+					include: ['requireLib'],
 					stubModules : ['json', 'text'],
 					preserveLicenseComments: false,
 					findNestedDependencies: true,
