@@ -38,8 +38,3 @@ grunt dist
 - compiles the CSS to a compressed file
 - compiles the Handlebars templates to javascript
 - packages all the javascript in main.min.js
-```
-grunt deploy
-```
-- runs `grunt dist`
-- deploys to a server with FTP
