@@ -37,8 +37,8 @@ sftp-config.json
 # Web Development Files
 # =========================
 
-# FTP
-.ftpauth
+# SSH
+secret.json
 
 # Sass
 .sass-cache
