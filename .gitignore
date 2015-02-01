@@ -51,5 +51,6 @@ npm-debug.log
 /scripts/vendor
 
 # Build results
-/public
+/public/*
+!public/assets
 /templates/build
