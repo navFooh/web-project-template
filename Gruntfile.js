@@ -3,7 +3,6 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 
 		pkg: grunt.file.readJSON('package.json'),
-		secret: grunt.file.readJSON('secret.json'),
 
 		clean: {
 			publicDir: ['public/*', '!public/assets'],
@@ -87,21 +86,6 @@ module.exports = function(grunt) {
 				files: ['templates/parts/**/*.hbs'],
 				tasks: ['handlebars']
 			}
-		},
-
-		sftp: {
-			deploy: {
-				files: { "./": "public/**" },
-				options: {
-					path: '<%= pkg.name %>',
-					host: '<%= secret.host %>',
-					username: '<%= secret.username %>',
-					password: '<%= secret.password %>',
-					srcBasePath: 'public/',
-					createDirectories: true,
-					showProgress: true
-				}
-			}
 		}
 	});
 
@@ -111,10 +95,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-handlebars');
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-ssh');
 
 	grunt.registerTask('dev', ['clean', 'compile-handlebars:dev', 'compass:dev', 'handlebars']);
 	grunt.registerTask('dist', ['clean', 'compile-handlebars:dist', 'compass:dist', 'handlebars', 'requirejs']);
-	grunt.registerTask('deploy', ['dist', 'ftp_push']);
 	grunt.registerTask('default', ['dev', 'watch']);
 };
