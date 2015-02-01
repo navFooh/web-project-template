@@ -96,10 +96,11 @@ module.exports = function(grunt) {
 					dest: '<%= pkg.name %>',
 					port: 21
 				},
-				files: [
-					{ expand: true, cwd: 'public', src: ['**/*'] },
-					{ expand: true, cwd: 'assets', src: ['**/*'], dest: 'assets/' }
-				]
+				files: [{
+					expand: true,
+					cwd: 'public',
+					src: ['**/*']
+				}]
 			}
 		}
 	});
