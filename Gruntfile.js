@@ -4,7 +4,10 @@ module.exports = function(grunt) {
 
 		pkg: grunt.file.readJSON('package.json'),
 
-		clean: ['public', 'templates/build'],
+		clean: {
+			publicDir: ['public/*', '!public/assets'],
+			templates: ['templates/build']
+		},
 
 		'compile-handlebars': {
 			dev: {
