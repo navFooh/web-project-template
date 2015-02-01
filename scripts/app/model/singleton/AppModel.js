@@ -5,10 +5,7 @@ define([
 	var AppModel = Backbone.Model.extend({
 
 		defaults: {
-			url: metadata.url,
-			title: metadata.title,
-			description: metadata.description,
-			author: metadata.author,
+			metadata: metadata,
 			dev: $('body').hasClass('dev')
 		},
 
