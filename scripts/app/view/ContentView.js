@@ -26,8 +26,8 @@ define([
 		},
 
 		onChangeDisplayValues: function() {
-			var windowWidth = DisplayModel.get('windowWidth'),
-				windowHeight = DisplayModel.get('windowHeight'),
+			var windowWidth = DisplayModel.get('width'),
+				windowHeight = DisplayModel.get('height'),
 				scrollTop = DisplayModel.get('scrollTop'),
 				displayValues = '';
 			displayValues += 'Window width: ' + windowWidth + '<br />';

@@ -3,8 +3,8 @@ define(function () {
 	var DisplayModel = Backbone.Model.extend({
 
 		defaults: {
-			windowWidth: 0,
-			windowHeight: 0,
+			width: 0,
+			height: 0,
 			scrollTop: 0
 		},
 
@@ -20,8 +20,8 @@ define(function () {
 
 		onResize: function () {
 			this.set({
-				windowWidth: window.innerWidth,
-				windowHeight: window.innerHeight
+				width: window.innerWidth,
+				height: window.innerHeight
 			});
 		},
 
