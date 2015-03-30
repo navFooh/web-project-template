@@ -5,11 +5,11 @@
     "requirejs": "~2.1.15",
     "requirejs-plugins": "~1.0.2",
     "jquery": "~2.1.1",
-    "underscore": "~1.7.0",
+    "underscore": "~1.8.2",
     "backbone": "~1.1.2",
     "backbone-super": "~1.0.2",
-    "handlebars": "~2.0.0",
-    "greensock": "~1.14.1",
+    "handlebars": "~3.0.0",
+    "greensock": "~1.16.1",
     "hammer.js": "~2.0.4"
   }
 }
