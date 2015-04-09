@@ -16,8 +16,6 @@ require.config({
 		'TimelineLite':         'vendor/greensock/src/uncompressed/TimelineLite',
 		'TimelineMax':          'vendor/greensock/src/uncompressed/TimelineMax',
 		'hammer':               'vendor/hammer.js/hammer',
-		// plugins
-		'backbone-autoBind':    'plugins/backbone-autoBind',
 		// directories
 		'model':                'app/model',
 		'view':                 'app/view',
@@ -34,8 +32,7 @@ require.config({
 require([
 	// this will make sure that backbone.js, jQuery
 	// and underscore.js are globally available
-	'backbone-super',
-	'backbone-autoBind'
+	'backbone-super'
 ], function() {
 
 	require(['app/app'], function(app) {
