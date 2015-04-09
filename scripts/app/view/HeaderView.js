@@ -8,7 +8,7 @@ define([
 		model: new HeaderModel(),
 
 		initialize: function () {
-			this.autoBind();
+
 		},
 
 		render: function($parent) {

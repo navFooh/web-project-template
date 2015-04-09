@@ -8,7 +8,7 @@ define([
 		model: new FooterModel(),
 
 		initialize: function () {
-			this.autoBind();
+
 		},
 
 		render: function($parent) {

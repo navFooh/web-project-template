@@ -11,7 +11,7 @@ define([
 		$displayValues: null,
 
 		initialize: function () {
-			this.autoBind();
+
 		},
 
 		render: function($parent) {
