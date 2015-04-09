@@ -7,7 +7,7 @@ define(function () {
 		},
 
 		initialize: function () {
-			this.autoBind();
+
 		}
 	});
 });
