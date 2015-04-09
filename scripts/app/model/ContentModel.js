@@ -4,10 +4,6 @@ define(function () {
 
 		defaults: {
 			text: "Content goes here"
-		},
-
-		initialize: function () {
-
 		}
 	});
 });
