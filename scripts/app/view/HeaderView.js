@@ -1,18 +1,9 @@
-define([
-	'model/HeaderModel',
-	'templates/header'
-], function(HeaderModel, template) {
+define(['templates/header'], function(template) {
 
 	return Backbone.View.extend({
 
-		model: new HeaderModel(),
-
-		initialize: function () {
-
-		},
-
 		render: function($parent) {
-			this.setElement(template(this.model.toJSON()));
+			this.setElement(template());
 			this.$el.appendTo($parent);
 		}
 	});
