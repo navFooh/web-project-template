@@ -1,39 +1,29 @@
 define([
-	'model/singleton/DisplayModel',
+	'templates/content',
 	'model/ContentModel',
-	'templates/content'
-], function(DisplayModel, ContentModel, template) {
+	'model/singleton/DisplayModel'
+], function(template, ContentModel, DisplayModel) {
 
 	return Backbone.View.extend({
 
 		model: new ContentModel(),
 
-		$displayValues: null,
-
-		initialize: function () {
-
-		},
-
 		render: function($parent) {
 			this.setElement(template(this.model.toJSON()));
 			this.$el.appendTo($parent);
 
-			this.$displayValues = this.$('.display-values');
+			this.$windowWidth = this.$('.window-width');
+			this.$windowHeight = this.$('.window-height');
+			this.$windowScroll = this.$('.window-scroll');
 
 			this.onChangeDisplayValues();
-
 			this.listenTo(DisplayModel, 'change', this.onChangeDisplayValues);
 		},
 
 		onChangeDisplayValues: function() {
-			var windowWidth = DisplayModel.get('width'),
-				windowHeight = DisplayModel.get('height'),
-				scrollTop = DisplayModel.get('scrollTop'),
-				displayValues = '';
-			displayValues += 'Window width: ' + windowWidth + '<br />';
-			displayValues += 'Window height: ' + windowHeight + '<br />';
-			displayValues += 'Window scroll: ' + scrollTop;
-			this.$displayValues.html(displayValues);
+			this.$windowWidth.html(DisplayModel.get('width'));
+			this.$windowHeight.html(DisplayModel.get('height'));
+			this.$windowScroll.html(DisplayModel.get('scrollTop'));
 		}
 	});
 });
