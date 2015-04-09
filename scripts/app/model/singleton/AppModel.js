@@ -7,10 +7,6 @@ define([
 		defaults: {
 			metadata: metadata,
 			dev: $('body').hasClass('dev')
-		},
-
-		initialize: function () {
-
 		}
 	});
 
