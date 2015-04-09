@@ -10,7 +10,7 @@ define([
 		},
 
 		initialize: function () {
-			this.autoBind();
+
 		}
 	});
 

@@ -10,7 +10,8 @@ define(function () {
 			},
 
 			initialize: function () {
-				this.autoBind();
+				_.bindAll(this, 'onScroll', 'onResize');
+
 				this.onScroll();
 				this.onResize();
 
