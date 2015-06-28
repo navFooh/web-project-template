@@ -15,7 +15,6 @@ require.config({
 		'TweenMax':             'vendor/greensock/src/uncompressed/TweenMax',
 		'TimelineLite':         'vendor/greensock/src/uncompressed/TimelineLite',
 		'TimelineMax':          'vendor/greensock/src/uncompressed/TimelineMax',
-		'hammer':               'vendor/hammer.js/hammer',
 		// directories
 		'model':                'app/model',
 		'view':                 'app/view',

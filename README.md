@@ -4,9 +4,7 @@ This is a project starter for HTML / CSS / JS development.
 The main components are [RequireJS](http://requirejs.org/) for dependency management,
 [Backbone.js](http://backbonejs.org/) for a basic model / view structure, [Handlebars](http://handlebarsjs.com/)
 for rendering html-templates and [Compass](http://compass-style.org/) for compiling the style sheets.
-
-It also includes the [GreenSock](http://greensock.com/) libraries for animation and
-[Hammer.js](http://hammerjs.github.io/) for supporting touch.
+It also includes the [GreenSock](http://greensock.com/) libraries for animation.
 
 To wrap it up, [Grunt](http://gruntjs.com/) handles all the compilation tasks.
 
