@@ -1,0 +1,13 @@
+root = true
+
+[*]
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{html,xml,js,scss}]
+indent_style = tab
+indent_size = 4
+
+[*.{json,bowerrc}]
+indent_style = space
+indent_size = 2
