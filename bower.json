@@ -2,13 +2,13 @@
   "name": "web-project-template",
   "private": true,
   "dependencies": {
-    "requirejs": "~2.1.15",
-    "requirejs-plugins": "~1.0.2",
-    "jquery": "~2.1.1",
-    "underscore": "~1.8.2",
-    "backbone": "~1.1.2",
-    "backbone-super": "~1.0.2",
-    "handlebars": "~3.0.0",
-    "greensock": "~1.16.1"
+    "requirejs": "~2.1.22",
+    "requirejs-plugins": "~1.0.3",
+    "jquery": "~2.1.4",
+    "underscore": "~1.8.3",
+    "backbone": "~1.2.3",
+    "backbone-super": "~1.0.4",
+    "handlebars": "~4.0.5",
+    "greensock": "~1.18.0"
   }
 }
