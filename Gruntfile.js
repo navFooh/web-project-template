@@ -11,16 +11,20 @@ module.exports = function(grunt) {
 
 		'compile-handlebars': {
 			dev: {
+				files: [{
+					src: 'templates/index.hbs',
+					dest: 'public/index.html'
+				}],
 				globals: ['metadata.json'],
-				templateData: { dev: true },
-				template: 'templates/index.hbs',
-				output: 'public/index.html'
+				templateData: { dev: true }
 			},
 			dist: {
+				files: [{
+					src: 'templates/index.hbs',
+					dest: 'public/index.html'
+				}],
 				globals: ['metadata.json'],
-				templateData: { dev: false },
-				template: 'templates/index.hbs',
-				output: 'public/index.html'
+				templateData: { dev: false }
 			}
 		},
 
