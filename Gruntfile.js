@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 					src: 'templates/index.hbs',
 					dest: 'public/index.html'
 				}],
-				globals: ['metadata.json'],
+				globals: ['metadata.json', 'package.json'],
 				templateData: { dev: true }
 			},
 			dist: {
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 					src: 'templates/index.hbs',
 					dest: 'public/index.html'
 				}],
-				globals: ['metadata.json'],
+				globals: ['metadata.json', 'package.json'],
 				templateData: { dev: false }
 			}
 		},

@@ -18,7 +18,7 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="assets/images/icon-32.png">
 		<link rel="icon" type="image/png" sizes="192x192" href="assets/images/icon-192.png">
 		<link rel="apple-touch-icon" type="image/png" href="assets/images/icon-192.png">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css?v={{ version }}">
 
 		<meta property="og:title" content="{{ title }}"/>
 		<meta property="og:site_name" content="{{ title }}"/>
@@ -31,7 +31,7 @@
 		{{#if dev}}
 		<script src="../scripts/vendor/requirejs/require.js" data-main="../scripts/main"></script>
 		{{else}}
-		<script src="js/main.min.js"></script>
+		<script src="js/main.min.js?v={{ version }}"></script>
 		{{/if}}
 
 		{{#unless dev}}
