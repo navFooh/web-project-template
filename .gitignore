@@ -48,6 +48,7 @@ npm-debug.log
 /scripts/vendor
 
 # Build results
-/public/*
-!public/assets
+/public/css
+/public/js
+/public/index.html
 /templates/build
