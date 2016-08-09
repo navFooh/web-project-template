@@ -67,15 +67,15 @@ module.exports = function(grunt) {
 		requirejs: {
 			compile: {
 				options: {
-					mainConfigFile: "scripts/main.js",
+					mainConfigFile: 'scripts/main.js',
 					name: 'main',
-					out: "public/js/main.min.js",
+					out: 'public/js/main.min.js',
 					include: ['requireLib'],
 					stubModules : ['json', 'text'],
 					preserveLicenseComments: false,
 					findNestedDependencies: false,
 					generateSourceMaps: false,
-					optimize: "uglify2"
+					optimize: 'uglify2'
 				}
 			}
 		},
