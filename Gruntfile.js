@@ -14,7 +14,7 @@ module.exports = function(grunt) {
 		'compile-handlebars': {
 			dev: {
 				files: [{
-					src: 'templates/index.hbs',
+					src: 'templates/static/index.hbs',
 					dest: 'public/index.html'
 				}],
 				globals: ['metadata.json', 'package.json'],
@@ -22,7 +22,7 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: [{
-					src: 'templates/index.hbs',
+					src: 'templates/static/index.hbs',
 					dest: 'public/index.html'
 				}],
 				globals: ['metadata.json', 'package.json'],
@@ -82,7 +82,7 @@ module.exports = function(grunt) {
 
 		watch: {
 			index: {
-				files: ['templates/index.hbs'],
+				files: ['templates/static/**/*.hbs'],
 				tasks: ['compile-handlebars:dev']
 			},
 			templates: {
