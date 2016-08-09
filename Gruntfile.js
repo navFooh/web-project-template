@@ -5,8 +5,10 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 
 		clean: {
-			publicDir: ['public/*', '!public/assets'],
-			templates: ['templates/build']
+			index: ['public/index.html'],
+			hbs: ['templates/build'],
+			css: ['public/css'],
+			js: ['public/js']
 		},
 
 		'compile-handlebars': {
@@ -25,6 +27,20 @@ module.exports = function(grunt) {
 				}],
 				globals: ['metadata.json', 'package.json'],
 				templateData: { dev: false }
+			}
+		},
+
+		handlebars: {
+			compile: {
+				options: {
+					amd: 'handlebars.runtime',
+					namespace: false
+				},
+				expand: true,
+				cwd: 'templates/parts',
+				src: ['**/*.hbs'],
+				dest: 'templates/build',
+				ext: '.js'
 			}
 		},
 
@@ -48,20 +64,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		handlebars: {
-			compile: {
-				options: {
-					amd: 'handlebars.runtime',
-					namespace: false
-				},
-				expand: true,
-				cwd: 'templates/parts',
-				src: ['**/*.hbs'],
-				dest: 'templates/build',
-				ext: '.js'
-			}
-		},
-
 		requirejs: {
 			compile: {
 				options: {
@@ -71,7 +73,7 @@ module.exports = function(grunt) {
 					include: ['requireLib'],
 					stubModules : ['json', 'text'],
 					preserveLicenseComments: false,
-					findNestedDependencies: true,
+					findNestedDependencies: false,
 					generateSourceMaps: false,
 					optimize: "uglify2"
 				}
@@ -79,10 +81,6 @@ module.exports = function(grunt) {
 		},
 
 		watch: {
-			styles: {
-				files: ['styles/**/*.scss'],
-				tasks: ['compass:dev']
-			},
 			index: {
 				files: ['templates/index.hbs'],
 				tasks: ['compile-handlebars:dev']
@@ -90,6 +88,10 @@ module.exports = function(grunt) {
 			templates: {
 				files: ['templates/parts/**/*.hbs'],
 				tasks: ['handlebars']
+			},
+			styles: {
+				files: ['styles/**/*.scss'],
+				tasks: ['compass:dev']
 			}
 		}
 	});
@@ -101,7 +103,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask('dev', ['clean', 'compile-handlebars:dev', 'compass:dev', 'handlebars']);
-	grunt.registerTask('dist', ['clean', 'compile-handlebars:dist', 'compass:dist', 'handlebars', 'requirejs']);
+	grunt.registerTask('dev', ['clean', 'compile-handlebars:dev', 'handlebars', 'compass:dev']);
+	grunt.registerTask('dist', ['clean', 'compile-handlebars:dist', 'handlebars', 'compass:dist', 'requirejs']);
 	grunt.registerTask('default', ['dev', 'watch']);
 };
