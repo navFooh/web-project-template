@@ -37,7 +37,7 @@ module.exports = function(grunt) {
 					namespace: false
 				},
 				expand: true,
-				cwd: 'templates/parts',
+				cwd: 'templates/runtime',
 				src: ['**/*.hbs'],
 				dest: 'templates/build',
 				ext: '.js'
@@ -86,7 +86,7 @@ module.exports = function(grunt) {
 				tasks: ['compile-handlebars:dev']
 			},
 			templates: {
-				files: ['templates/parts/**/*.hbs'],
+				files: ['templates/runtime/**/*.hbs'],
 				tasks: ['handlebars']
 			},
 			styles: {
