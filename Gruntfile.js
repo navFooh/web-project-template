@@ -83,15 +83,15 @@ module.exports = function(grunt) {
 		watch: {
 			index: {
 				files: ['templates/static/**/*.hbs'],
-				tasks: ['compile-handlebars:dev']
+				tasks: ['clean:index', 'compile-handlebars:dev']
 			},
 			templates: {
 				files: ['templates/runtime/**/*.hbs'],
-				tasks: ['handlebars']
+				tasks: ['clean:hbs', 'handlebars']
 			},
 			styles: {
 				files: ['styles/**/*.scss'],
-				tasks: ['compass:dev']
+				tasks: ['clean:css', 'compass:dev']
 			}
 		}
 	});
