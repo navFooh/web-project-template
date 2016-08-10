@@ -1,4 +1,7 @@
-define(['templates/footer'], function(template) {
+define([
+	'backbone',
+	'templates/footer'
+], function(Backbone, template) {
 
 	return Backbone.View.extend({
 

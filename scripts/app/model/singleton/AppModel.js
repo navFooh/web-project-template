@@ -1,6 +1,7 @@
 define([
+	'backbone',
 	'json!../../../../metadata.json'
-], function (metadata) {
+], function (Backbone, metadata) {
 
 	var AppModel = Backbone.Model.extend({
 

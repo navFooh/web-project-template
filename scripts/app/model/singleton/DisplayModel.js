@@ -1,4 +1,4 @@
-define(function () {
+define(['backbone'], function (Backbone) {
 
 	var debounce = 250,
 		DisplayModel = Backbone.Model.extend({

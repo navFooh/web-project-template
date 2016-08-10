@@ -1,4 +1,7 @@
-define(['templates/header'], function(template) {
+define([
+	'backbone',
+	'templates/header'
+], function(Backbone, template) {
 
 	return Backbone.View.extend({
 
