@@ -6,7 +6,9 @@ define([
 
 	return Backbone.View.extend({
 
-		model: new ContentModel(),
+		initialize: function() {
+			this.model = new ContentModel();
+		},
 
 		render: function($parent) {
 			this.setElement(template(this.model.toJSON()));
@@ -14,16 +16,14 @@ define([
 
 			this.$windowWidth = this.$('.window-width');
 			this.$windowHeight = this.$('.window-height');
-			this.$windowScroll = this.$('.window-scroll');
 
-			this.onChangeDisplayValues();
-			this.listenTo(DisplayModel, 'change', this.onChangeDisplayValues);
+			this.onResize();
+			this.listenTo(DisplayModel, 'resize', this.onResize);
 		},
 
-		onChangeDisplayValues: function() {
+		onResize: function() {
 			this.$windowWidth.html(DisplayModel.get('width'));
 			this.$windowHeight.html(DisplayModel.get('height'));
-			this.$windowScroll.html(DisplayModel.get('scrollTop'));
 		}
 	});
 });
