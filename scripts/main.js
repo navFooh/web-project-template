@@ -9,7 +9,6 @@ require.config({
 		'jquery':               'vendor/jquery/dist/jquery',
 		'underscore':           'vendor/underscore/underscore',
 		'backbone':             'vendor/backbone/backbone',
-		'backbone-super':       'vendor/backbone-super/backbone-super/backbone-super',
 		'handlebars.runtime':   'vendor/handlebars/handlebars.runtime',
 		'TweenLite':            'vendor/greensock/src/uncompressed/TweenLite',
 		'TweenMax':             'vendor/greensock/src/uncompressed/TweenMax',
@@ -28,13 +27,6 @@ require.config({
 	}
 });
 
-require([
-	// this will make sure that backbone.js, jQuery
-	// and underscore.js are globally available
-	'backbone-super'
-], function() {
-
-	require(['app/app'], function(app) {
-		app.initialize();
-	});
+require(['app/AppMain'], function(App) {
+	new App();
 });
