@@ -9,7 +9,7 @@ require.config({
 		'jquery':               'vendor/jquery/dist/jquery',
 		'underscore':           'vendor/underscore/underscore',
 		'backbone':             'vendor/backbone/backbone',
-		'handlebars.runtime':   'vendor/handlebars/handlebars.runtime',
+		'handlebars':           'vendor/handlebars/handlebars.runtime',
 		'TweenLite':            'vendor/greensock/src/uncompressed/TweenLite',
 		'TweenMax':             'vendor/greensock/src/uncompressed/TweenMax',
 		'TimelineLite':         'vendor/greensock/src/uncompressed/TimelineLite',
