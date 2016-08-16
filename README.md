@@ -22,14 +22,14 @@ bower install
 gulp
 ```
 - compiles `index.hbs` to `index.html` for development
-- compiles runtime '.hbs' files to '.js'
-- compiles '.scss' to nested '.css'
+- compiles runtime `.hbs` files to `.js`
+- compiles `.scss` to nested `.css`
 - runs watchers for changes to above files
 
 ```
 grunt --dist
 ```
 - compiles `index.hbs` to `index.html` for production
-- compiles runtime '.hbs' files to '.js'
-- compiles '.scss' to compressed '.css'
-- compiles all Javascript to 'main.min.js'
+- compiles runtime `.hbs` files to `.js`
+- compiles `.scss` to compressed `.css`
+- compiles all Javascript to `main.min.js`
