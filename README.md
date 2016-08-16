@@ -3,38 +3,33 @@ This is a project starter for HTML / CSS / JS development.
 
 The main components are [RequireJS](http://requirejs.org/) for dependency management,
 [Backbone.js](http://backbonejs.org/) for a basic model / view structure, [Handlebars](http://handlebarsjs.com/)
-for rendering html-templates and [Compass](http://compass-style.org/) for compiling the style sheets.
-It also includes the [GreenSock](http://greensock.com/) libraries for animation.
+for rendering html-templates and [Sass](http://sass-lang.com/) for compiling the style sheets.
+It also includes the [GreenSock](http://greensock.com/) library for animation.
 
-To wrap it up, [Grunt](http://gruntjs.com/) handles all the compilation tasks.
+To wrap it up, [Gulp](http://gulpjs.com/) handles all the compilation tasks.
 
 ## Installation
-To get started, the vendor tools need to be installed. If you haven't already, make sure you have
-[Node.js](http://nodejs.org/) and [Bower](http://bower.io/) up and running.
+To get started, the vendor packages need to be installed. If you haven't already, make sure you have
+[Node.js](http://nodejs.org/), [Gulp](http://gulpjs.com/) and [Bower](http://bower.io/) up and running.
 Then run these commands in the template's directory:
 ```
 npm install
 bower install
 ```
 
-## Grunt tasks
+## Gulp tasks
 ```
-grunt
+gulp
 ```
-- runs `grunt dev`
-- watches for changes in .scss and .hbs files to recompile
+- compiles `index.hbs` to `index.html` for development
+- compiles runtime '.hbs' files to '.js'
+- compiles '.scss' to nested '.css'
+- runs watchers for changes to above files
 
 ```
-grunt dev
+grunt --dist
 ```
-- builds a development version of index.html
-- compiles the CSS to an expanded file
-- compiles the Handlebars templates to javascript
-
-```
-grunt dist
-```
-- builds a distribution version of index.html
-- compiles the CSS to a compressed file
-- compiles the Handlebars templates to javascript
-- packages all the javascript in main.min.js
+- compiles `index.hbs` to `index.html` for production
+- compiles runtime '.hbs' files to '.js'
+- compiles '.scss' to compressed '.css'
+- compiles all Javascript to 'main.min.js'
