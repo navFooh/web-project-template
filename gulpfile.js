@@ -1,4 +1,5 @@
 var fs = require('fs'),
+	del = require('del'),
 	argv = require('yargs').argv,
 	gulp = require('gulp'),
 	data = require('gulp-data'),
@@ -58,7 +59,11 @@ gulp.task('sass', function() {
  * Concatenate and minify all Javascript to main.min.js
  */
 
-gulp.task('requirejs', ['hbs-runtime'], function() {
+gulp.task('clean:requirejs', function() {
+	del('./public/js');
+});
+
+gulp.task('requirejs', ['clean:requirejs', 'hbs-runtime'], function() {
 
 	var options = {
 		mainConfigFile: 'scripts/main.js',
@@ -91,7 +96,7 @@ gulp.task('watch', ['hbs-static', 'hbs-runtime', 'sass'], function() {
  * Setup main tasks to run from CLI, "gulp" and "gulp --dist"
  */
 
-var defaultTasks = ['hbs-static', 'hbs-runtime', 'sass'];
+var defaultTasks = ['clean:requirejs', 'hbs-static', 'hbs-runtime', 'sass'];
 defaultTasks.push(argv.dist ? 'requirejs' : 'watch');
 
 gulp.task('default', defaultTasks, function() {
