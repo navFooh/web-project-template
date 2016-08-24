@@ -5,6 +5,8 @@ const watch = require('gulp-watch');
 
 module.exports = {
 
+	dep: ['hbs-static:compile'],
+
 	fn: function (gulp, options) {
 
 		return watch(options.paths.hbsStatic.watch)
