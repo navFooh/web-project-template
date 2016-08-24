@@ -9,11 +9,11 @@ module.exports = {
 
 	fn: function (gulp, options) {
 
-		return watch(options.paths.hbsStatic.watch)
+		return watch(options.hbsStatic.watch)
 			.pipe(data(options.pkg))
 			.pipe(data(options.meta))
 			.pipe(compileHbs({ dev: options.dev }))
-			.pipe(rename(options.paths.hbsStatic.name))
-			.pipe(gulp.dest(options.paths.hbsStatic.dest));
+			.pipe(rename(options.hbsStatic.name))
+			.pipe(gulp.dest(options.hbsStatic.dest));
 	}
 };

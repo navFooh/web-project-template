@@ -7,9 +7,9 @@ module.exports = {
 
 	fn: function(gulp, options) {
 
-		return gulp.src(options.paths.hbsRuntime.src)
+		return gulp.src(options.hbsRuntime.src)
 			.pipe(handlebars({ handlebars: require('handlebars') }))
 			.pipe(defineModule('amd'))
-			.pipe(gulp.dest(options.paths.hbsRuntime.dest));
+			.pipe(gulp.dest(options.hbsRuntime.dest));
 	}
 };

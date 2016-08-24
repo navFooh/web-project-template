@@ -9,10 +9,10 @@ module.exports = {
 
 	fn: function(gulp, options) {
 
-		return watch(options.paths.hbsRuntime.src)
-			.pipe(changed(options.paths.hbsRuntime.dest, { extension: '.js' }))
+		return watch(options.hbsRuntime.src)
+			.pipe(changed(options.hbsRuntime.dest, { extension: '.js' }))
 			.pipe(handlebars({ handlebars: require('handlebars') }))
 			.pipe(defineModule('amd'))
-			.pipe(gulp.dest(options.paths.hbsRuntime.dest));
+			.pipe(gulp.dest(options.hbsRuntime.dest));
 	}
 };
