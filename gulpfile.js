@@ -1,107 +1,56 @@
 var fs = require('fs'),
-	del = require('del'),
-	argv = require('yargs').argv,
 	gulp = require('gulp'),
-	data = require('gulp-data'),
-	util = require('gulp-util'),
-	sass = require('gulp-sass'),
-	hbsStatic = require('gulp-compile-handlebars'),
-	hbsRuntime = require('gulp-handlebars'),
-	requirejsOptimize = require('gulp-requirejs-optimize'),
-	autoprefixer = require('gulp-autoprefixer'),
-	defineModule = require('gulp-define-module'),
-	changed = require('gulp-changed'),
-	rename = require('gulp-rename');
+	argv = require('yargs').argv,
+	dev = !argv.dist;
 
-/*
- * Compile index.hbs to index.html for static serving
- */
+require('gulp-require-tasks')({
+	path: __dirname + '/scripts/gulp',
+	arguments: [{
 
-gulp.task('hbs-static', function () {
+		dev: dev,
+		pkg: JSON.parse(fs.readFileSync(__dirname + '/package.json')),
+		meta: JSON.parse(fs.readFileSync(__dirname + '/metadata.json')),
 
-	return gulp.src('./templates/static/index.hbs')
-		.pipe(data(JSON.parse(fs.readFileSync('./package.json'))))
-		.pipe(data(JSON.parse(fs.readFileSync('./metadata.json'))))
-		.pipe(hbsStatic({ dev: !argv.dist }))
-		.pipe(rename('index.html'))
-		.pipe(gulp.dest('./public'));
+		hbsStatic: {
+			src: __dirname + '/templates/static/index.hbs',
+			watch: __dirname + '/templates/static/**/*.hbs',
+			dest: __dirname + '/public',
+			name: 'index.html'
+		},
+
+		hbsRuntime: {
+			src: __dirname + '/templates/runtime/**/*.hbs',
+			dest: __dirname + '/templates/build'
+		},
+
+		sass: {
+			src: __dirname + '/styles/**/*.scss',
+			dest: __dirname + '/public/css',
+			options: { outputStyle: dev ? 'nested' : 'compressed' },
+			autoprefixer: {
+				browsers: ['last 2 versions'],
+				cascade: false
+			}
+		},
+
+		requirejs: {
+			src: __dirname + '/scripts/main.js',
+			dest: __dirname + '/public/js',
+			name: 'main.min.js',
+			options: {
+				mainConfigFile: 'scripts/main.js',
+				include: ['requireLib'],
+				stubModules : ['json', 'text'],
+				preserveLicenseComments: false,
+				findNestedDependencies: false,
+				generateSourceMaps: false,
+				optimize: 'uglify2'
+			}
+		}
+	}]
 });
 
-/*
- * Compile runtime .hbs templates for use in Javascript
- */
-
-gulp.task('hbs-runtime', function() {
-
-	return gulp.src('./templates/runtime/**/*.hbs')
-		.pipe(changed('./templates/build', { extension: '.js' }))
-		.pipe(hbsRuntime({ handlebars: require('handlebars') }))
-		.pipe(defineModule('amd'))
-		.pipe(gulp.dest('./templates/build'));
-});
-
-/*
- * Compile runtime .scss to .css
- */
-
-gulp.task('sass', function() {
-
-	var sassOptions = { outputStyle: argv.dist ? 'compressed' : 'nested' },
-		autoprefixerOptions = { browsers: ['last 2 versions'], cascade: false };
-
-	return gulp.src('./styles/**/*.scss')
-		.pipe(sass(sassOptions).on('error', sass.logError))
-		.pipe(autoprefixer(autoprefixerOptions))
-		.pipe(gulp.dest('./public/css'));
-});
-
-/*
- * Concatenate and minify all Javascript to main.min.js
- */
-
-gulp.task('clean:requirejs', function() {
-	del('./public/js');
-});
-
-gulp.task('requirejs', ['clean:requirejs', 'hbs-runtime'], function() {
-
-	var options = {
-		mainConfigFile: 'scripts/main.js',
-		include: ['requireLib'],
-		stubModules : ['json', 'text'],
-		preserveLicenseComments: false,
-		findNestedDependencies: false,
-		generateSourceMaps: false,
-		optimize: 'uglify2'
-	};
-
-	return gulp.src('./scripts/main.js')
-		.pipe(requirejsOptimize(options))
-		.pipe(rename('main.min.js'))
-		.pipe(gulp.dest('./public/js'));
-});
-
-/*
- * Setup watchers (automatically run by default "gulp" task)
- */
-
-gulp.task('watch', ['hbs-static', 'hbs-runtime', 'sass'], function() {
-
-	gulp.watch('./templates/static/**/*.hbs', ['hbs-static']);
-	gulp.watch('./templates/runtime/**/*.hbs', ['hbs-runtime']);
-	gulp.watch('./styles/**/*.scss', ['sass']);
-});
-
-/*
- * Setup main tasks to run from CLI, "gulp" and "gulp --dist"
- */
-
-var defaultTasks = ['clean:requirejs', 'hbs-static', 'hbs-runtime', 'sass'];
-defaultTasks.push(argv.dist ? 'requirejs' : 'watch');
-
-gulp.task('default', defaultTasks, function() {
-	var message = argv.dist
-		? 'Created distribution build'
-		: 'Created development build and start watching';
-	util.log(util.colors.green(message));
-});
+gulp.task('default', dev
+	? ['hbs-static:watch', 'hbs-runtime:watch', 'requirejs:clean', 'sass:watch']
+	: ['hbs-static:compile', 'requirejs:compile', 'sass:compile']
+);

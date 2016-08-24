@@ -11,9 +11,10 @@
     "gulp-define-module": "^0.1.4",
     "gulp-handlebars": "^4.0.0",
     "gulp-rename": "^1.2.2",
+    "gulp-require-tasks": "^1.0.5",
     "gulp-requirejs-optimize": "^1.2.0",
     "gulp-sass": "^2.3.2",
-    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.9",
     "handlebars": "^4.0.5",
     "yargs": "^4.8.1"
   }
