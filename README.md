@@ -27,7 +27,7 @@ gulp
 - runs watchers for changes to above files
 
 ```
-grunt --dist
+gulp --dist
 ```
 - compiles `index.hbs` to `index.html` for production
 - compiles runtime `.hbs` files to `.js`
