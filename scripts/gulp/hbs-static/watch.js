@@ -1,5 +1,4 @@
 const compileHbs = require('gulp-compile-handlebars');
-const data = require('gulp-data');
 const plumber = require('gulp-plumber');
 const rename = require('gulp-rename');
 const watch = require('gulp-watch');
@@ -12,9 +11,7 @@ module.exports = {
 
 		return watch(options.hbsStatic.watch)
 			.pipe(plumber())
-			.pipe(data(options.pkg))
-			.pipe(data(options.meta))
-			.pipe(compileHbs({ dev: options.dev }))
+			.pipe(compileHbs(options))
 			.pipe(rename(options.hbsStatic.name))
 			.pipe(gulp.dest(options.hbsStatic.dest));
 	}
