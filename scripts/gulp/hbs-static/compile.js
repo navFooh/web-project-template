@@ -1,5 +1,6 @@
 const compileHbs = require('gulp-compile-handlebars');
 const data = require('gulp-data');
+const plumber = require('gulp-plumber');
 const rename = require('gulp-rename');
 
 module.exports = {
@@ -7,6 +8,7 @@ module.exports = {
 	fn: function (gulp, options) {
 
 		return gulp.src(options.hbsStatic.src)
+			.pipe(plumber())
 			.pipe(data(options.pkg))
 			.pipe(data(options.meta))
 			.pipe(compileHbs({ dev: options.dev }))

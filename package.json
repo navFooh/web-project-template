@@ -10,6 +10,7 @@
     "gulp-data": "^1.2.1",
     "gulp-define-module": "^0.1.4",
     "gulp-handlebars": "^4.0.0",
+    "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-require-tasks": "^1.0.5",
     "gulp-requirejs-optimize": "^1.2.0",
