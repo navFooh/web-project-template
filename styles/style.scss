@@ -1,7 +1,22 @@
-@import "base/reset";
-@import "base/config";
-@import "base/general";
+// Settings - Contains fonts, colors, etc. Does not output any CSS
+@import "01.settings/colors";
 
-@import "layout/header";
-@import "layout/content";
-@import "layout/footer";
+// Tools - Globally used mixins and functions. Does not output any CSS
+@import "02.tools/mixins";
+
+// Generic - Reset / normalize styles and global definitions
+@import "03.generic/reset";
+@import "03.generic/text";
+@import "03.generic/user";
+
+// Elements - Styling for bare HTML elements (H1, P, A, etc.)
+@import "04.elements/body";
+@import "04.elements/h1-6";
+
+// Objects - Class-based selectors which define recurring objects like an arrow or button
+@import "05.objects/page";
+
+// Layout - This is where the actual styling of specific components happens
+@import "06.layout/header";
+@import "06.layout/content";
+@import "06.layout/footer";
