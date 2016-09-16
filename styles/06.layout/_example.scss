@@ -1,0 +1,10 @@
+#example {
+	padding: 24px;
+
+	.dimensions {
+		padding: 24px;
+		color: $white;
+		background: $blue;
+		@include center(fixed);
+	}
+}

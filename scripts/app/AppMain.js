@@ -1,12 +1,12 @@
 define([
 	'app/AppBase',
-	'view/Content'
-], function (AppBase, Content) {
+	'view/Example'
+], function (AppBase, Example) {
 
 	return AppBase.extend({
 
 		createViews: function() {
-			new Content().render('body');
+			new Example().render('#content');
 		}
 	});
 });

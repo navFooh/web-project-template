@@ -1,14 +1,14 @@
 define([
 	'backbone',
-	'templates/content',
-	'model/ContentModel',
+	'templates/example',
+	'model/ExampleModel',
 	'model/singleton/DisplayModel'
-], function(Backbone, template, ContentModel, DisplayModel) {
+], function(Backbone, template, ExampleModel, DisplayModel) {
 
 	return Backbone.View.extend({
 
 		initialize: function() {
-			this.model = new ContentModel();
+			this.model = new ExampleModel();
 		},
 
 		render: function($parent) {
