@@ -1,6 +1,6 @@
 define(['backbone'], function (Backbone) {
 
-	var debounce = 250,
+	var $window = $(window),
 		DisplayModel = Backbone.Model.extend({
 
 			defaults: {
@@ -10,21 +10,17 @@ define(['backbone'], function (Backbone) {
 			},
 
 			initialize: function () {
-				_.bindAll(this, 'onScroll', 'onResize');
+				_.bindAll(this, 'onResize', 'onScroll');
 
-				this.onScroll();
 				this.onResize();
+				this.onScroll();
 
-				$(window).on('scroll', this.onScroll);
-				$(window).on('resize', this.onResize);
-				this.on('resize', this.onResizeStart);
-				this.on('resize', this.onResizeEnd);
-			},
+				$window.on('resize', this.onResize);
+				$window.on('scroll', this.onScroll);
 
-			onScroll: function () {
-				this.set({
-					scrollTop: $(window).scrollTop()
-				});
+				var debounce = 250;
+				this.on('resize', _.debounce(_.partial(this.trigger, 'resizeStart'), debounce, true));
+				this.on('resize', _.debounce(_.partial(this.trigger, 'resizeEnd'), debounce));
 			},
 
 			onResize: function () {
@@ -34,13 +30,11 @@ define(['backbone'], function (Backbone) {
 				}).trigger('resize');
 			},
 
-			onResizeStart: _.debounce(function() {
-				this.trigger('resizeStart');
-			}, debounce, true),
-
-			onResizeEnd: _.debounce(function() {
-				this.trigger('resizeEnd');
-			}, debounce)
+			onScroll: function () {
+				this.set({
+					scrollTop: $window.scrollTop()
+				});
+			}
 		});
 
 	return new DisplayModel();
