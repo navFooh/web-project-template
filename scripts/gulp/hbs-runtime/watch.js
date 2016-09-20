@@ -9,7 +9,10 @@ module.exports = {
 
 	fn: function(gulp, options) {
 
-		return watch(options.hbsRuntime.src, { ignoreInitial: false })
+		return watch(options.hbsRuntime.src, {
+				events: ['add', 'change'],
+				ignoreInitial: false
+			})
 			.pipe(plumber())
 			.pipe(handlebars({ handlebars: require('handlebars') }))
 			.pipe(defineModule('amd'))
