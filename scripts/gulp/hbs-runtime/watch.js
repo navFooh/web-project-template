@@ -5,11 +5,11 @@ const watch = require('gulp-watch');
 
 module.exports = {
 
-	dep: ['hbs-runtime:compile'],
+	dep: ['hbs-runtime:clean'],
 
 	fn: function(gulp, options) {
 
-		return watch(options.hbsRuntime.src)
+		return watch(options.hbsRuntime.src, { ignoreInitial: false })
 			.pipe(plumber())
 			.pipe(handlebars({ handlebars: require('handlebars') }))
 			.pipe(defineModule('amd'))
