@@ -9,7 +9,7 @@ module.exports = {
 			ignoreInitial: false,
 			read: false
 		}, _.debounce(function() {
-			gulp.start('sass:compile')
+			gulp.start('sass:compile');
 		}, 100));
 	}
 };
