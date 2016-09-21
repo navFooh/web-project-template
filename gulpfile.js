@@ -1,7 +1,7 @@
-var fs = require('fs'),
-	gulp = require('gulp'),
-	argv = require('yargs').argv,
-	dev = !argv.dist;
+const fs = require('fs');
+const gulp = require('gulp');
+const argv = require('yargs').argv;
+const dev = !argv.dist;
 
 require('gulp-require-tasks')({
 	path: __dirname + '/scripts/gulp',
