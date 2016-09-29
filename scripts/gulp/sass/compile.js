@@ -10,6 +10,7 @@ module.exports = {
 		return gulp.src(options.sass.src)
 			.pipe(sass(options.sass.options).on('error', sass.logError))
 			.pipe(autoprefixer(options.sass.autoprefixer))
-			.pipe(gulp.dest(options.sass.dest));
+			.pipe(gulp.dest(options.sass.dest))
+			.pipe(options.browserSync.stream());
 	}
 };

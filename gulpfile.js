@@ -1,5 +1,6 @@
 const gulp = require('gulp');
 const argv = require('yargs').argv;
+const browserSync = require('browser-sync').create();
 const dev = !argv.dist;
 
 require('gulp-require-tasks')({
@@ -9,6 +10,7 @@ require('gulp-require-tasks')({
 		dev: dev,
 		pkg: require('./package.json'),
 		meta: require('./metadata.json'),
+		browserSync: browserSync,
 
 		hbsRuntime: {
 			src: __dirname + '/templates/runtime/**/*.hbs',
