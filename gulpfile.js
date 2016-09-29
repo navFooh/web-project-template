@@ -1,4 +1,3 @@
-const fs = require('fs');
 const gulp = require('gulp');
 const argv = require('yargs').argv;
 const dev = !argv.dist;
@@ -8,8 +7,8 @@ require('gulp-require-tasks')({
 	arguments: [{
 
 		dev: dev,
-		pkg: JSON.parse(fs.readFileSync(__dirname + '/package.json')),
-		meta: JSON.parse(fs.readFileSync(__dirname + '/metadata.json')),
+		pkg: require('./package.json'),
+		meta: require('./metadata.json'),
 
 		hbsRuntime: {
 			src: __dirname + '/templates/runtime/**/*.hbs',
