@@ -10,8 +10,7 @@ module.exports = {
 	fn: function(gulp, options) {
 
 		return watch(options.hbsRuntime.src, {
-				events: ['add', 'change'],
-				ignoreInitial: false
+				events: ['add', 'change']
 			})
 			.pipe(plumber())
 			.pipe(handlebars({ handlebars: require('handlebars') }))

@@ -6,7 +6,6 @@ module.exports = {
 	fn: function(gulp, options) {
 
 		return watch(options.sass.src, {
-			ignoreInitial: false,
 			read: false
 		}, _.debounce(function() {
 			gulp.start('sass:compile');

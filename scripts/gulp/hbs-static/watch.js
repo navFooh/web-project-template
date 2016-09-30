@@ -6,7 +6,6 @@ module.exports = {
 	fn: function(gulp, options) {
 
 		return watch(options.hbsStatic.watch, {
-			ignoreInitial: false,
 			read: false
 		}, _.debounce(function() {
 			gulp.start('hbs-static:compile');
