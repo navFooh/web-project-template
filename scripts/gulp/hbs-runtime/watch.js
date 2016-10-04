@@ -5,8 +5,6 @@ const watch = require('gulp-watch');
 
 module.exports = {
 
-	dep: ['hbs-runtime:clean'],
-
 	fn: function(gulp, options) {
 
 		return watch(options.hbsRuntime.src, {
