@@ -1,6 +1,7 @@
-const gulp = require('gulp');
 const argv = require('yargs').argv;
+const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
+const runSequence = require('run-sequence');
 const dev = !argv.dist;
 
 require('gulp-require-tasks')({
@@ -51,7 +52,27 @@ require('gulp-require-tasks')({
 	}]
 });
 
-gulp.task('default', dev
-	? ['hbs-runtime:watch', 'hbs-static:watch', 'requirejs:clean', 'sass:watch']
-	: ['hbs-runtime:compile', 'hbs-static:compile', 'requirejs:compile', 'sass:compile']
-);
+gulp.task('default', function() {
+	dev ? runSequence('build', 'serve', 'watch')
+		: runSequence('build');
+});
+
+gulp.task('build', function(callback) {
+	dev ? runSequence(['hbs-runtime:compile', 'hbs-static:compile', 'requirejs:clean', 'sass:compile'], callback)
+		: runSequence(['hbs-runtime:compile', 'hbs-static:compile', 'requirejs:compile', 'sass:compile'], callback);
+});
+
+gulp.task('serve', function(callback) {
+	browserSync.init({
+		server: {
+			baseDir: "./public",
+			routes: {
+				"/scripts": "scripts",
+				"/templates": "templates"
+			}
+		}
+	});
+	callback();
+});
+
+gulp.task('watch', ['hbs-runtime:watch', 'hbs-static:watch', 'sass:watch']);
