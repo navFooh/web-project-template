@@ -13,6 +13,7 @@ module.exports = {
 			.pipe(plumber())
 			.pipe(handlebars({ handlebars: require('handlebars') }))
 			.pipe(defineModule('amd'))
-			.pipe(gulp.dest(options.hbsRuntime.dest));
+			.pipe(gulp.dest(options.hbsRuntime.dest))
+			.pipe(options.browserSync.stream());
 	}
 };
