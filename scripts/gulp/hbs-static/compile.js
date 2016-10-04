@@ -10,6 +10,7 @@ module.exports = {
 			.pipe(plumber())
 			.pipe(compileHbs(options))
 			.pipe(rename(options.hbsStatic.name))
-			.pipe(gulp.dest(options.hbsStatic.dest));
+			.pipe(gulp.dest(options.hbsStatic.dest))
+			.pipe(options.browserSync.stream());
 	}
 };
