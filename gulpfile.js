@@ -52,9 +52,9 @@ require('gulp-require-tasks')({
 	}]
 });
 
-gulp.task('default', function() {
-	dev ? runSequence('build', 'serve', 'watch')
-		: runSequence('build');
+gulp.task('default', function(callback) {
+	dev ? runSequence('build', 'serve', 'watch', callback)
+		: runSequence('build', callback);
 });
 
 gulp.task('build', function(callback) {
