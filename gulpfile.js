@@ -64,13 +64,9 @@ gulp.task('build', function(callback) {
 
 gulp.task('serve', function(callback) {
 	browserSync.init({
-		server: {
-			baseDir: "./public",
-			routes: {
-				"/scripts": "scripts",
-				"/templates": "templates"
-			}
-		}
+		files: 'scripts/app/**/*.js',
+		server: true,
+		startPath: 'public'
 	});
 	callback();
 });
