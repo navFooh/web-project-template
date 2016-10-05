@@ -30,6 +30,7 @@ require('gulp-require-tasks')({
 			dest: __dirname + '/public/js',
 			name: 'main.min.js',
 			options: {
+				name: 'main',
 				mainConfigFile: 'scripts/main.js',
 				include: ['requireLib'],
 				stubModules : ['json', 'text'],
