@@ -25,6 +25,7 @@ gulp
 - compiles runtime `.hbs` files to `.js`
 - compiles `.scss` to nested `.css`
 - runs watchers for changes to above files
+- serves the public folder with BrowserSync and injects CSS or reloads on HTML / JS changes
 
 ```
 gulp --dist
