@@ -1,5 +1,6 @@
 // Settings - Contains fonts, colors, etc. Does not output any CSS
 @import "01.settings/colors";
+@import "01.settings/eases";
 
 // Tools - Globally used mixins and functions. Does not output any CSS
 @import "02.tools/mixins";
