@@ -5,43 +5,43 @@
 
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="description" content="{{ meta.description }}">
-		<meta name="keywords" content="{{ meta.keywords }}">
-		<meta name="author" content="{{ meta.author }}">
+		<meta name="description" content="{{meta.description}}">
+		<meta name="keywords" content="{{meta.keywords}}">
+		<meta name="author" content="{{meta.author}}">
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 
-		<meta name="theme-color" content="{{ meta.themeColor }}">
+		<meta name="theme-color" content="{{meta.themeColor}}">
 		<meta name="msapplication-tap-highlight" content="no">
-		<meta name="msapplication-navbutton-color" content="{{ meta.themeColor }}">
+		<meta name="msapplication-navbutton-color" content="{{meta.themeColor}}">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-		<title>{{ meta.title }}</title>
+		<title>{{meta.title}}</title>
 
 		<link rel="icon" type="image/png" sizes="32x32" href="img/icon-32.png">
 		<link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
 		<link rel="apple-touch-icon" type="image/png" href="img/icon-192.png">
-		<link rel="stylesheet" type="text/css" href="css/style.css?v={{ pkg.version }}">
+		<link rel="stylesheet" type="text/css" href="css/style.css?v={{pkg.version}}">
 
-		<meta property="og:title" content="{{ meta.title }}"/>
-		<meta property="og:site_name" content="{{ meta.title }}"/>
-		<meta property="og:description" content="{{ meta.description }}"/>
+		<meta property="og:title" content="{{meta.title}}"/>
+		<meta property="og:site_name" content="{{meta.title}}"/>
+		<meta property="og:description" content="{{meta.description}}"/>
 		<meta property="og:type" content="website"/>
 		<meta property="og:locale" content="en_US"/>
-		<meta property="og:url" content="{{ meta.url }}"/>
-		<meta property="og:image" content="{{ meta.url }}/img/og-image.jpg"/>
-		<meta property="fb:admins" content="{{ meta.fbAdmin }}"/>
+		<meta property="og:url" content="{{meta.url}}"/>
+		<meta property="og:image" content="{{meta.url}}/img/og-image.jpg"/>
+		<meta property="fb:admins" content="{{meta.fbAdmin}}"/>
 
 		{{#if dev}}
 		<script src="../scripts/vendor/requirejs/require.js" data-main="../scripts/main"></script>
 		{{else}}
-		<script src="js/main.min.js?v={{ pkg.version }}" async></script>
+		<script src="js/main.min.js?v={{pkg.version}}" async></script>
 		{{/if}}
 
 		{{#unless dev}}
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', '{{ meta.tracking }}']);
+			_gaq.push(['_setAccount', '{{meta.tracking}}']);
 			_gaq.push(['_trackPageview']);
 			(function() {
 				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -53,10 +53,10 @@
 
 	</head>
 
-	<body data-dev="{{ dev }}">
+	<body data-dev="{{dev}}">
 
 		<header>
-			<h1>{{ meta.title }}</h1>
+			<h1>{{meta.title}}</h1>
 		</header>
 
 		<div id="content"></div>
