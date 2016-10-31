@@ -8,6 +8,7 @@ module.exports = {
 	fn: function(gulp, options) {
 
 		return watch(options.hbsRuntime.src, {
+				base: options.hbsRuntime.base,
 				events: ['add', 'change']
 			})
 			.pipe(plumber())

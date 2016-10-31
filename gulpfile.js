@@ -14,6 +14,7 @@ require('gulp-require-tasks')({
 		browserSync: browserSync,
 
 		hbsRuntime: {
+			base: 'templates/runtime',
 			src: __dirname + '/templates/runtime/**/*.hbs',
 			dest: __dirname + '/scripts/templates'
 		},
