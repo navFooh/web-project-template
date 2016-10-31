@@ -1,0 +1,10 @@
+a {
+	display: inline-block;
+	text-decoration: none;
+	border-bottom: 1px solid $black;
+	color: $black;
+
+	&:hover {
+		border-bottom-color: transparent;
+	}
+}
