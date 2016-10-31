@@ -51,4 +51,4 @@ npm-debug.log
 /public/css
 /public/js
 /public/index.html
-/templates/build
+/scripts/templates

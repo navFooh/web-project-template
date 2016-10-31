@@ -16,8 +16,7 @@ require.config({
 		'TimelineMax':          'vendor/greensock/src/uncompressed/TimelineMax',
 		// directories
 		'model':                'app/model',
-		'view':                 'app/view',
-		'templates':            '../templates/build'
+		'view':                 'app/view'
 	},
 
 	shim: {

@@ -15,7 +15,7 @@ require('gulp-require-tasks')({
 
 		hbsRuntime: {
 			src: __dirname + '/templates/runtime/**/*.hbs',
-			dest: __dirname + '/templates/build'
+			dest: __dirname + '/scripts/templates'
 		},
 
 		hbsStatic: {
