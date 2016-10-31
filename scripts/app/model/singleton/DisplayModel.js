@@ -32,7 +32,7 @@ define(['backbone'], function (Backbone) {
 			this.set({
 				scrollX: window.scrollX || document.documentElement.scrollLeft,
 				scrollY: window.scrollY || document.documentElement.scrollTop
-			});
+			}).trigger('scroll');
 		}
 	});
 
