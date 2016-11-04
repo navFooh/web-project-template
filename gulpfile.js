@@ -47,7 +47,7 @@ require('gulp-require-tasks')({
 			dest: __dirname + '/public/css',
 			options: { outputStyle: dev ? 'nested' : 'compressed' },
 			autoprefixer: {
-				browsers: ['last 2 versions'],
+				browsers: ['last 3 versions'],
 				cascade: false
 			}
 		}
