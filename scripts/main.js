@@ -17,12 +17,6 @@ require.config({
 		// directories
 		'model':                'app/model',
 		'view':                 'app/view'
-	},
-
-	shim: {
-		// this makes sure TimelineMax does not include
-		// TweenLite when already loading TweenMax
-		'TimelineMax': { deps: ['TweenMax'] }
 	}
 });
 
