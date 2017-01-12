@@ -13,6 +13,15 @@
 	transform: translate(-50%, -50%);
 }
 
+@mixin center-text($position: absolute) {
+	position: $position;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	transform: translateY(-50%);
+}
+
 @mixin clearfix() {
 	&:before,
 	&:after {
