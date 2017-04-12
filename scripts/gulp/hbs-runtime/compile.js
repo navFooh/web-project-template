@@ -6,7 +6,7 @@ module.exports = {
 
 	dep: ['hbs-runtime:clean'],
 
-	fn: function(gulp, options) {
+	fn: function (gulp, options) {
 
 		return gulp.src(options.hbsRuntime.src)
 			.pipe(plumber())

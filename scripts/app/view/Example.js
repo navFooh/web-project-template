@@ -3,15 +3,15 @@ define([
 	'templates/example',
 	'model/ExampleModel',
 	'model/singleton/DisplayModel'
-], function(Backbone, template, ExampleModel, DisplayModel) {
+], function (Backbone, template, ExampleModel, DisplayModel) {
 
 	return Backbone.View.extend({
 
-		initialize: function() {
+		initialize: function () {
 			this.model = new ExampleModel();
 		},
 
-		render: function($parent) {
+		render: function ($parent) {
 			this.setElement(template(this.model.toJSON()));
 			this.$el.appendTo($parent);
 
@@ -22,7 +22,7 @@ define([
 			this.listenTo(DisplayModel, 'resize', this.onResize);
 		},
 
-		onResize: function() {
+		onResize: function () {
 			this.$windowWidth.html(DisplayModel.get('width'));
 			this.$windowHeight.html(DisplayModel.get('height'));
 		}

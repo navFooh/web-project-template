@@ -54,17 +54,17 @@ require('gulp-require-tasks')({
 	}]
 });
 
-gulp.task('default', function(callback) {
+gulp.task('default', function (callback) {
 	dev ? runSequence('build', 'serve', 'watch', callback)
 		: runSequence('build', callback);
 });
 
-gulp.task('build', function(callback) {
+gulp.task('build', function (callback) {
 	dev ? runSequence(['hbs-runtime:compile', 'hbs-static:compile', 'requirejs:clean', 'sass:compile'], callback)
 		: runSequence(['hbs-runtime:compile', 'hbs-static:compile', 'requirejs:compile', 'sass:compile'], callback);
 });
 
-gulp.task('serve', function(callback) {
+gulp.task('serve', function (callback) {
 	browserSync.init({
 		files: 'scripts/app/**/*.js',
 		server: true,

@@ -5,7 +5,7 @@ module.exports = {
 
 	dep: ['requirejs:clean', 'hbs-runtime:compile'],
 
-	fn: function(gulp, options) {
+	fn: function (gulp, options) {
 
 		return gulp.src(options.requirejs.src)
 			.pipe(requirejsOptimize(options.requirejs.options))

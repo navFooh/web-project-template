@@ -5,7 +5,7 @@ module.exports = {
 
 	dep: ['sass:clean'],
 
-	fn: function(gulp, options) {
+	fn: function (gulp, options) {
 
 		return gulp.src(options.sass.src)
 			.pipe(sass(options.sass.options).on('error', sass.logError))

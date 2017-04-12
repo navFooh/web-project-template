@@ -5,7 +5,7 @@ define([
 
 	return AppBase.extend({
 
-		createViews: function() {
+		createViews: function () {
 			new Example().render('#content');
 		}
 	});

@@ -5,7 +5,7 @@ const watch = require('gulp-watch');
 
 module.exports = {
 
-	fn: function(gulp, options) {
+	fn: function (gulp, options) {
 
 		return watch(options.hbsRuntime.src, {
 				base: options.hbsRuntime.base,
