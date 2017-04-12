@@ -1,4 +1,7 @@
-define(['backbone'], function (Backbone) {
+define([
+	'backbone',
+	'underscore'
+], function (Backbone, _) {
 
 	var DisplayModel = Backbone.Model.extend({
 
