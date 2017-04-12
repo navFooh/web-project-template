@@ -20,6 +20,6 @@ require.config({
 	}
 });
 
-require(['app/AppMain'], function (App) {
+require(['app/app-main'], function (App) {
 	new App();
 });

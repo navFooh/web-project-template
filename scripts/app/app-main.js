@@ -1,6 +1,6 @@
 define([
-	'app/AppBase',
-	'view/Example'
+	'app/app-base',
+	'view/example'
 ], function (AppBase, Example) {
 
 	return AppBase.extend({
