@@ -1,9 +1,9 @@
 define([
 	'backbone',
-	'model/example-model',
 	'model/singleton/display-model',
+	'model/example-model',
 	'templates/example'
-], function (Backbone, ExampleModel, DisplayModel, template) {
+], function (Backbone, DisplayModel, ExampleModel, template) {
 
 	return Backbone.View.extend({
 
