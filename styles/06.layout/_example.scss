@@ -1,8 +1,8 @@
 #example {
-	padding: 24px;
+	padding: 1.5rem;
 
 	.dimensions {
-		padding: 24px;
+		padding: 1.5rem;
 		color: $white;
 		background: $black;
 		@include center(fixed);
