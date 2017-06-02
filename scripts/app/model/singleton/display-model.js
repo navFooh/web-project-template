@@ -20,8 +20,8 @@ define([
 			window.addEventListener('scroll', this.onScroll.bind(this));
 
 			var debounce = 250;
-			this.on('resize', _.debounce(_.partial(this.trigger, 'resizeStart'), debounce, true));
-			this.on('resize', _.debounce(_.partial(this.trigger, 'resizeEnd'), debounce));
+			this.on('resize', _.debounce(_.partial(this.trigger, 'resize:start'), debounce, true));
+			this.on('resize', _.debounce(_.partial(this.trigger, 'resize:end'), debounce));
 		},
 
 		onResize: function () {
