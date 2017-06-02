@@ -2,7 +2,7 @@ require.config({
 
 	paths: {
 		// require.js
-		'requireLib':           'vendor/requirejs/require',
+		'require-lib':          'vendor/requirejs/require',
 		'text':                 'vendor/requirejs-plugins/lib/text',
 		'json':                 'vendor/requirejs-plugins/src/json',
 		// vendor

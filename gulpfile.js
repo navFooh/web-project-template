@@ -33,7 +33,7 @@ require('gulp-require-tasks')({
 			options: {
 				name: 'main',
 				mainConfigFile: 'scripts/main.js',
-				include: ['requireLib'],
+				include: ['require-lib'],
 				stubModules : ['json', 'text'],
 				preserveLicenseComments: false,
 				findNestedDependencies: false,
