@@ -1,9 +1,9 @@
 a {
 	display: inline-block;
 	border-bottom: 1px solid $black;
-	text-decoration: none;
-	cursor: pointer;
 	color: $black;
+	cursor: pointer;
+	text-decoration: none;
 
 	&:hover {
 		border-bottom-color: transparent;
