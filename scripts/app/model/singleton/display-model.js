@@ -6,10 +6,10 @@ define([
 	var DisplayModel = Backbone.Model.extend({
 
 		defaults: {
-			width: 0,
-			height: 0,
-			scrollX: 0,
-			scrollY: 0
+			width: null,
+			height: null,
+			scrollX: null,
+			scrollY: null
 		},
 
 		initialize: function () {
