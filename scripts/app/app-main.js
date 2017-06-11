@@ -6,7 +6,7 @@ define([
 	return AppBase.extend({
 
 		createViews: function () {
-			new Example().render('body');
+			new Example().render(document.body);
 		}
 	});
 });
