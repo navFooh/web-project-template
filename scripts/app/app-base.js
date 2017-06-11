@@ -7,8 +7,8 @@ define([
 		this.createViews.apply(this, arguments);
 		this.createModels.apply(this, arguments);
 		this.createRouters.apply(this, arguments);
-		this.addListeners();
-		this.start();
+		this.addListeners.apply(this, arguments);
+		this.start.apply(this, arguments);
 	};
 
 	_.extend(App.prototype, Backbone.Events, {
