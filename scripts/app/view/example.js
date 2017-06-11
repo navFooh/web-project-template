@@ -11,9 +11,9 @@ define([
 			this.model = new ExampleModel();
 		},
 
-		render: function ($parent) {
+		render: function (parent) {
 			this.setElement(template(this.model.toJSON()));
-			this.$el.appendTo($parent);
+			this.$el.appendTo(parent);
 
 			this.$windowWidth = this.$('.window-width');
 			this.$windowHeight = this.$('.window-height');
