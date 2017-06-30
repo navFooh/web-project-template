@@ -1,15 +1,16 @@
 const rename = require('gulp-rename');
 const requirejsOptimize = require('gulp-requirejs-optimize');
+const config = require('../../../gulpconfig');
 
 module.exports = {
 
-	dep: ['requirejs:clean', 'hbs-runtime:compile'],
+	deps: ['requirejs:clean', 'hbs-runtime:compile'],
 
-	fn: function (gulp, options) {
+	fn: function (gulp) {
 
-		return gulp.src(options.requirejs.src)
-			.pipe(requirejsOptimize(options.requirejs.options))
-			.pipe(rename(options.requirejs.name))
-			.pipe(gulp.dest(options.requirejs.dest));
+		return gulp.src(config.requirejs.src)
+			.pipe(requirejsOptimize(config.requirejs.options))
+			.pipe(rename(config.requirejs.name))
+			.pipe(gulp.dest(config.requirejs.dest));
 	}
 };

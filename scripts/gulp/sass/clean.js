@@ -1,8 +1,9 @@
 const del = require('del');
+const config = require('../../../gulpconfig');
 
 module.exports = {
 
-	fn: function (gulp, options) {
-		return del(options.sass.dest);
+	fn: function () {
+		return del(config.sass.dest);
 	}
 };

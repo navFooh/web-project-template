@@ -1,11 +1,12 @@
 const _ = require('underscore');
 const watch = require('gulp-watch');
+const config = require('../../../gulpconfig');
 
 module.exports = {
 
-	fn: function (gulp, options) {
+	fn: function (gulp) {
 
-		return watch(options.sass.src, {
+		return watch(config.sass.src, {
 			read: false
 		}, _.debounce(function () {
 			gulp.start('sass:compile');

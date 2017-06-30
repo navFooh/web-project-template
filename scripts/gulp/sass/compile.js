@@ -1,16 +1,17 @@
 const autoprefixer = require('gulp-autoprefixer');
 const sass = require('gulp-sass');
+const config = require('../../../gulpconfig');
 
 module.exports = {
 
-	dep: ['sass:clean'],
+	deps: ['sass:clean'],
 
-	fn: function (gulp, options) {
+	fn: function (gulp) {
 
-		return gulp.src(options.sass.src)
-			.pipe(sass(options.sass.options).on('error', sass.logError))
-			.pipe(autoprefixer(options.sass.autoprefixer))
-			.pipe(gulp.dest(options.sass.dest))
-			.pipe(options.browserSync.stream());
+		return gulp.src(config.sass.src)
+			.pipe(sass(config.sass.options).on('error', sass.logError))
+			.pipe(autoprefixer(config.sass.autoprefixer))
+			.pipe(gulp.dest(config.sass.dest))
+			.pipe(global.browserSyncInstance.stream());
 	}
 };

@@ -1,76 +1,28 @@
-const argv = require('yargs').argv;
 const gulp = require('gulp');
-const browserSync = require('browser-sync').create();
+const gulpRequireTasks = require('gulp-require-tasks');
+const browserSync = require('browser-sync');
 const runSequence = require('run-sequence');
-const dev = !argv.dist;
+const config = require('./gulpconfig');
 
-require('gulp-require-tasks')({
-	path: __dirname + '/scripts/gulp',
-	arguments: [{
+global.browserSyncInstance = browserSync.create();
 
-		dev: dev,
-		pkg: require('./package.json'),
-		meta: require('./metadata.json'),
-		browserSync: browserSync,
+const devBuild = ['hbs-runtime:compile', 'hbs-static:compile', 'requirejs:clean', 'sass:compile'];
+const distBuild = ['hbs-runtime:compile', 'hbs-static:compile', 'requirejs:compile', 'sass:compile'];
+const watchTasks = ['hbs-runtime:watch', 'hbs-static:watch', 'sass:watch'];
 
-		hbsRuntime: {
-			base: 'templates/runtime',
-			src: __dirname + '/templates/runtime/**/*.hbs',
-			dest: __dirname + '/scripts/templates'
-		},
-
-		hbsStatic: {
-			src: __dirname + '/templates/static/index.hbs',
-			watch: __dirname + '/templates/static/**/*.hbs',
-			dest: __dirname + '/public',
-			name: 'index.html'
-		},
-
-		requirejs: {
-			src: __dirname + '/scripts/main.js',
-			dest: __dirname + '/public/js',
-			name: 'main.min.js',
-			options: {
-				name: 'main',
-				mainConfigFile: 'scripts/main.js',
-				include: ['require-lib'],
-				stubModules : ['json', 'text'],
-				preserveLicenseComments: false,
-				findNestedDependencies: false,
-				generateSourceMaps: false,
-				optimize: 'uglify2'
-			}
-		},
-
-		sass: {
-			src: __dirname + '/styles/**/*.scss',
-			dest: __dirname + '/public/css',
-			options: { outputStyle: dev ? 'nested' : 'compressed' },
-			autoprefixer: {
-				browsers: ['last 3 versions'],
-				cascade: false
-			}
-		}
-	}]
-});
+gulpRequireTasks({ path: __dirname + '/scripts/gulp' });
 
 gulp.task('default', function (callback) {
-	dev ? runSequence('build', 'serve', 'watch', callback)
-		: runSequence('build', callback);
-});
-
-gulp.task('build', function (callback) {
-	dev ? runSequence(['hbs-runtime:compile', 'hbs-static:compile', 'requirejs:clean', 'sass:compile'], callback)
-		: runSequence(['hbs-runtime:compile', 'hbs-static:compile', 'requirejs:compile', 'sass:compile'], callback);
+	config.dev
+		? runSequence(devBuild, 'serve', watchTasks, callback)
+		: runSequence(distBuild, callback);
 });
 
 gulp.task('serve', function (callback) {
-	browserSync.init({
+	global.browserSyncInstance.init({
 		files: 'scripts/app/**/*.js',
 		server: true,
 		startPath: 'public'
 	});
 	callback();
 });
-
-gulp.task('watch', ['hbs-runtime:watch', 'hbs-static:watch', 'sass:watch']);
