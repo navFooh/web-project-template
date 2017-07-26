@@ -10,10 +10,10 @@ require.config({
 		'underscore':           'vendor/underscore/underscore',
 		'backbone':             'vendor/backbone/backbone',
 		'handlebars':           'vendor/handlebars/handlebars.runtime',
-		'TweenLite':            'vendor/greensock/src/uncompressed/TweenLite',
-		'TweenMax':             'vendor/greensock/src/uncompressed/TweenMax',
-		'TimelineLite':         'vendor/greensock/src/uncompressed/TimelineLite',
-		'TimelineMax':          'vendor/greensock/src/uncompressed/TimelineMax',
+		'TweenLite':            'vendor/gsap/src/uncompressed/TweenLite',
+		'TweenMax':             'vendor/gsap/src/uncompressed/TweenMax',
+		'TimelineLite':         'vendor/gsap/src/uncompressed/TimelineLite',
+		'TimelineMax':          'vendor/gsap/src/uncompressed/TimelineMax',
 		// directories
 		'model':                'app/model',
 		'view':                 'app/view'
