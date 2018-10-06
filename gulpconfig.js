@@ -32,7 +32,8 @@ module.exports = {
 			preserveLicenseComments: false,
 			findNestedDependencies: false,
 			generateSourceMaps: false,
-			optimize: 'uglify2'
+			wrapShim: true,
+			optimize: 'uglify'
 		}
 	},
 
