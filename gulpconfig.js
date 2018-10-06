@@ -24,16 +24,13 @@ module.exports = {
 		src: __dirname + '/scripts/main.js',
 		dest: __dirname + '/public/js',
 		options: {
+			mainConfigFile: 'scripts/main.js',
 			out: 'main.min.js',
 			name: 'main',
-			mainConfigFile: 'scripts/main.js',
 			include: ['require-lib'],
-			stubModules : ['json', 'text'],
-			preserveLicenseComments: false,
-			findNestedDependencies: false,
-			generateSourceMaps: false,
-			wrapShim: true,
-			optimize: 'uglify'
+			stubModules: ['json', 'text'],
+			optimize: 'uglify',
+			wrapShim: true
 		}
 	},
 
