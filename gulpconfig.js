@@ -23,8 +23,8 @@ module.exports = {
 	requirejs: {
 		src: __dirname + '/scripts/main.js',
 		dest: __dirname + '/public/js',
-		name: 'main.min.js',
 		options: {
+			out: 'main.min.js',
 			name: 'main',
 			mainConfigFile: 'scripts/main.js',
 			include: ['require-lib'],
