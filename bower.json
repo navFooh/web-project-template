@@ -2,12 +2,12 @@
   "name": "web-project-template",
   "private": true,
   "dependencies": {
-    "requirejs": "^2.3.5",
+    "requirejs": "^2.3.6",
     "requirejs-plugins": "^1.0.3",
     "jquery": "^3.3.1",
     "underscore": "^1.9.1",
     "backbone": "^1.3.3",
-    "handlebars": "^4.0.11",
-    "gsap": "^2.0.1"
+    "handlebars": "^4.0.12",
+    "gsap": "^2.0.2"
   }
 }
