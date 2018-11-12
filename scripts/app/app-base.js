@@ -3,7 +3,7 @@ define([
 	'underscore'
 ], function (Backbone, _) {
 
-	var App = function (options) {
+	var App = function () {
 		this.createViews.apply(this, arguments);
 		this.createModels.apply(this, arguments);
 		this.createRouters.apply(this, arguments);
