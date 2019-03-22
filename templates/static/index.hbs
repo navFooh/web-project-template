@@ -39,7 +39,7 @@
 		<meta name="twitter:image" content="{{meta.url}}/img/og-image.jpg" />
 
 		{{#if dev}}
-		<script src="../scripts/vendor/requirejs/require.js" data-main="../scripts/main"></script>
+		<script src="../node_modules/requirejs/require.js" data-main="../scripts/main"></script>
 		{{else}}
 		<script src="js/main.min.js?v={{pkg.version}}" async></script>
 		{{/if}}

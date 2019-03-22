@@ -44,12 +44,9 @@ sftp-config.json
 # Web Development Files
 # =========================
 
-# Sass
-.sass-cache
-
 # Vendors
+.sass-cache
 /node_modules
-/scripts/vendor
 
 # Build results
 /public/css

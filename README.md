@@ -9,12 +9,11 @@ It also includes the [GreenSock](http://greensock.com/) library for animation.
 To wrap it up, [Gulp](http://gulpjs.com/) handles all the compilation tasks.
 
 ## Installation
-To get started, the vendor packages need to be installed. If you haven't already, make sure you have
-[Node.js](http://nodejs.org/), [Gulp](http://gulpjs.com/) and [Bower](http://bower.io/) up and running.
-Then run these commands in the template's directory:
+To get started, the vendor packages need to be installed. If you haven't already, make sure
+you have [Node.js](http://nodejs.org/) and [Gulp](http://gulpjs.com/) up and running.
+Then run these command in the template's directory:
 ```
 npm install
-bower install
 ```
 
 ## Gulp tasks
