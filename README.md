@@ -19,6 +19,8 @@ npm install
 ## Gulp tasks
 ```
 gulp
+// or
+npm start
 ```
 - compiles `index.hbs` to `index.html` for development
 - compiles runtime `.hbs` files to `.js`
@@ -28,6 +30,8 @@ gulp
 
 ```
 gulp --dist
+// or
+npm run build
 ```
 - compiles `index.hbs` to `index.html` for production
 - compiles runtime `.hbs` files to `.js`

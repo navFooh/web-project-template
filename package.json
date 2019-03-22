@@ -1,6 +1,10 @@
 {
   "name": "web-project-template",
   "version": "0.3.0",
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp --dist"
+  },
   "dependencies": {
     "backbone": "^1.4.0",
     "browser-sync": "^2.26.3",
