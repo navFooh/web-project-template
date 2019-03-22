@@ -1,24 +1,14 @@
-const gulp = require('gulp');
-const gulpRequireTasks = require('gulp-require-tasks');
+const { registry, parallel, series, task } = require('gulp');
+const HubRegistry = require('gulp-hub');
 const browserSync = require('browser-sync');
-const runSequence = require('run-sequence');
-const config = require('./gulpconfig');
+const argv = require('yargs').argv;
 
+global.dev = !argv.dist;
 global.browserSyncInstance = browserSync.create();
 
-const devBuild = ['hbs-runtime:compile', 'hbs-static:compile', 'requirejs:clean', 'sass:compile'];
-const distBuild = ['hbs-runtime:compile', 'hbs-static:compile', 'requirejs:compile', 'sass:compile'];
-const watchTasks = ['hbs-runtime:watch', 'hbs-static:watch', 'sass:watch'];
+registry(new HubRegistry(['scripts/gulp/*.js']));
 
-gulpRequireTasks({ path: __dirname + '/scripts/gulp' });
-
-gulp.task('default', function (callback) {
-	config.dev
-		? runSequence(devBuild, 'serve', watchTasks, callback)
-		: runSequence(distBuild, callback);
-});
-
-gulp.task('serve', function (callback) {
+task('serve', callback => {
 	global.browserSyncInstance.init({
 		files: 'scripts/app/**/*.js',
 		server: true,
@@ -26,3 +16,12 @@ gulp.task('serve', function (callback) {
 	});
 	callback();
 });
+
+task('clean', parallel('hbs-runtime:clean', 'requirejs:clean', 'sass:clean'));
+task('watch', parallel('hbs-runtime:watch', 'hbs-static:watch', 'sass:watch'));
+task('compile:dev', parallel('hbs-runtime:compile', 'hbs-static:compile', 'sass:compile'));
+task('compile:dist', parallel(series('hbs-runtime:compile', 'requirejs:compile'), 'hbs-static:compile', 'sass:compile'));
+
+exports.default = global.dev
+	? series('clean', 'compile:dev', 'serve', 'watch')
+	: series('clean', 'compile:dist');
