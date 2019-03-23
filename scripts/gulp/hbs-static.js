@@ -4,6 +4,7 @@ const gulpPlumber = require('gulp-plumber');
 const gulpRename = require('gulp-rename');
 
 const hbsStaticSrc = './templates/static/index.hbs';
+const hbsStaticWatch = './templates/static/**/*.hbs';
 const hbsStaticDest = './public';
 const hbsStaticName = 'index.html';
 const hbsStaticData = {
@@ -20,4 +21,4 @@ task('hbs-static:compile', () => src(hbsStaticSrc)
 	.pipe(global.browserSyncInstance.stream())
 );
 
-task('hbs-static:watch', () => watch(hbsStaticSrc, series('hbs-static:compile')));
+task('hbs-static:watch', () => watch(hbsStaticWatch, series('hbs-static:compile')));
