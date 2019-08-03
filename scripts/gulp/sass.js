@@ -11,7 +11,6 @@ const sassOptions = {
 	outputStyle: global.dev ? 'nested' : 'compressed'
 };
 const autoprefixerOptions = {
-	browsers: ['last 3 versions'],
 	cascade: false
 };
 
