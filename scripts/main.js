@@ -10,10 +10,7 @@ require.config({
 		'underscore':           '../node_modules/underscore/underscore',
 		'backbone':             '../node_modules/backbone/backbone',
 		'handlebars':           '../node_modules/handlebars/dist/handlebars.runtime',
-		'TweenLite':            '../node_modules/gsap/src/uncompressed/TweenLite',
-		'TweenMax':             '../node_modules/gsap/src/uncompressed/TweenMax',
-		'TimelineLite':         '../node_modules/gsap/src/uncompressed/TimelineLite',
-		'TimelineMax':          '../node_modules/gsap/src/uncompressed/TimelineMax',
+		'gsap':            		'../node_modules/gsap/dist/gsap',
 		// directories
 		'model':                'app/model',
 		'view':                 'app/view'
